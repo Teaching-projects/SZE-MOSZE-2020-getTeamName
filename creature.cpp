@@ -10,6 +10,7 @@ void Creature::attack(Creature* uj){
 }
 
 void Creature::setLife(double life){
+	
     if(life >= 0){
         this->life = life;
     }else{
@@ -18,6 +19,7 @@ void Creature::setLife(double life){
 }
 
 bool Creature::isDead(){
+	
     if(this->getLife() > 0){
         return false;
     }else{

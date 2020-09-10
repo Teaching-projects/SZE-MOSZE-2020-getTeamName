@@ -7,8 +7,11 @@ using namespace std;
 int main() {
     Creature* h1 = new Creature("Maple", 150, 10);
     Creature* h2 = new Creature("Sally", 45, 30);
+	
     while(!h1->isDead() && !h2->isDead()){
+		
         if(!h1->isDead()){
+			
             std::cout << h1->getName() << " -> " << h2->getName() << "\n";
             h1->attack(h2);
             std::cout << h1->getName() << ": HP: " << h1->getLife() << ", DMG: " <<h1->getDamage() << "\n";
@@ -18,6 +21,7 @@ int main() {
         std::cout << "\n";
 
         if(!h2->isDead()){
+			
             std::cout << h2->getName() << " -> " << h1->getName() << "\n";
             h2->attack(h1);
             std::cout << h1->getName() << ": HP: " << h1->getLife() << ", DMG: " <<h1->getDamage() << "\n";

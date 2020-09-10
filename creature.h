@@ -20,4 +20,6 @@ public:
     void attack(Creature*);
     bool isDead();
 };
+
+
 #endif // CREATURE_H
