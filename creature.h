@@ -9,8 +9,8 @@ class Creature{
 
 private:
     double life;
-    double damage;
-    std::string name;
+    const double damage;
+    const std::string name;
 public:
     Creature(std::string, double, double);
     double getLife() const {return life;}

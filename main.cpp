@@ -4,9 +4,10 @@ using namespace std;
 
 #include "creature.h"
 
-int main() {
-    Creature* h1 = new Creature("Maple", 150, 10);
-    Creature* h2 = new Creature("Sally", 45, 30);
+int main(int argc, char *argv[]) {
+
+    Creature* h1 = new Creature(argv[1], atoi(argv[2]), atoi(argv[3]));
+    Creature* h2 = new Creature(argv[4], atoi(argv[5]), atoi(argv[6]));
 	
     while(!h1->isDead() && !h2->isDead()){
 		
