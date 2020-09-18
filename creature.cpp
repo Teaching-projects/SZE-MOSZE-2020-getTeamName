@@ -19,9 +19,5 @@ void Creature::setLife(double life){
 }
 
 bool Creature::isDead() const {
-	
-    if(this->getLife() > 0){
-        return false;
-    }
-    return true;
+    return (this->getLife() > 0) ? false : true;
 }
