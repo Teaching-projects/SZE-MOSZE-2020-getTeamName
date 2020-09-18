@@ -17,8 +17,8 @@ public:
     void setLife(double);
     std::string getName() const {return name;}
     double getDamage() const {return damage;}
-    void attack(Creature*);
-    bool isDead();
+    void attack(Creature*) const;
+    bool isDead() const;
 };
 
 

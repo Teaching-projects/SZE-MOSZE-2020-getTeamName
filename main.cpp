@@ -1,7 +1,4 @@
 #include <iostream>
-
-using namespace std;
-
 #include "creature.h"
 
 int main(int argc, char *argv[]) {
@@ -11,7 +8,7 @@ int main(int argc, char *argv[]) {
 	
     while(!h1->isDead() && !h2->isDead()){
 		
-        if(!h1->isDead()){
+        if(!h1->isDead()) {
 			
             std::cout << h1->getName() << " -> " << h2->getName() << "\n";
             h1->attack(h2);
@@ -33,9 +30,12 @@ int main(int argc, char *argv[]) {
     }
     if(h1->isDead()){
         std::cout << h1->getName() << " died. " << h2->getName() << " wins. \n";
-    }else{
+    } else {
         std::cout << h2->getName() << " died. " << h1->getName() << " wins. \n";
     }
     std::cout << std::endl;
+    
+    delete h1, h2;
+    
     return 0;
 }
