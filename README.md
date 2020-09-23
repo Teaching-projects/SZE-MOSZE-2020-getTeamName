@@ -8,9 +8,11 @@
 
 A harcosok tulajdonságait, valamint viselkedésüket egy osztályon belül definiáltuk.
 
-A játék jelen verziója a "main"-ben körönként kiírja, hogy melyik harcos melyik harcossal harcol aktuálisan, az adott harcos életét (HP), valamint a támadás következtében a harcos támadási értékét (DMG).
+A játék jelen verziója a lefuttatástt követően kiírja, hogy melyik harcos győzött és mennyi életereje maradt.
 
-A játék mindaddig tart, amíg valamelyik harcosnak az élete 0 nem lesz. Ezután a nyertes és a vesztes harcos kíírásra kerül.
+A játék mindaddig tart, amíg valamelyik harcosnak az élete 0 nem lesz.
+
+Bemenetként 2 json fájlt vár a program. Ezekből a json fájlokból nyeri ki a harcosok adatait.
 
 ---
 
