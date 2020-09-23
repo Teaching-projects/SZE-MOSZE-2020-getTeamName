@@ -1,5 +1,6 @@
 *.exe
-
 *.pro
 *.user
-
+*.out
+.DS_Store
+.vscode
