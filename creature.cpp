@@ -37,7 +37,7 @@ static inline void ReplaceAll2(std::string &str, const char& from, const std::st
 Creature* Creature::parseUnit(const std::string filename) {
       std::ifstream file(filename);
       if (!file.good()) {
-        throw std::runtime_error("File does not exists...\n");
+        throw std::runtime_error(filename + " does not exists...\n");
       } else {
         std::string name, newline;
           std::vector<std::string> result;
