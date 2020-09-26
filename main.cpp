@@ -6,6 +6,13 @@ int main(int argc, char *argv[]) {
     Creature* h1 = Creature::parseUnit(argv[1]);
     Creature* h2 = Creature::parseUnit(argv[2]);
 
+    try {
+        h1 = Creature::parseUnit(argv[1]);
+        h2 = Creature::parseUnit(argv[2]);
+    } catch (std::runtime_error re) {
+        re.what();
+    }
+
     while(!h1->isDead() && !h2->isDead()){
 
         if(!h1->isDead()) {

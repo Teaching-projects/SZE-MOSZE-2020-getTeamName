@@ -8,18 +8,10 @@ Creature::Creature(const Creature& param):
 
 
 void Creature::attack(Creature* uj) const {
-    if(uj->getLife() > 0){
-        uj->setLife(uj->getLife() - this->getDamage());
+    if(uj->life > 0){
+        uj->life = (uj->life - this->getDamage());
     }
-}
 
-void Creature::setLife(double life){
-
-    if(life >= 0){
-        this->life = life;
-    } else {
-        this->life = 0;
-    }
 }
 
 bool Creature::isDead() const {
@@ -55,7 +47,7 @@ Creature* Creature::parseUnit(const std::string filename) {
                       counter=1;
                       temp = temp.substr(0,temp.length());
                   }
-                  if (contains(temp, '"')) {
+                  if (newline.find(temp)!= std::string::npos){
                       ReplaceAll2(temp, '"', "");
                   }
                   result.push_back(temp);
@@ -65,13 +57,4 @@ Creature* Creature::parseUnit(const std::string filename) {
           return new Creature(result[0], std::stod(result[1]), std::stod(result[2]));
       }
     }
-
-bool Creature::contains(std::string from, char find) {
-    for (char i : from) {
-        if (i == find) {
-            return true;
-        }
-    }
-    return false;
-}
 

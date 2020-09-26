@@ -1,15 +1,29 @@
 import os, sys
 
 def main():
-    excepted_outputs = ["Sally wins. Remaining HP: 5", "Kakarott wins. Remaining HP: 29970", "Kakarott wins. Remaining HP: 29990", "Maple wins. Remaining HP: 30", "Kakarott wins. Remaining HP: 30000", "Kakarott wins. Remaining HP: 30000"]
-    commands = ['./a.out "Units/Sally.json" "Units/Maple.json"', './a.out "Units/Sally.json" "Units/Kakarott.json"', './a.out "Units/Maple.json" "Units/Kakarott.json"', './a.out "Units/Maple.json" "Units/Sally.json"', './a.out "Units/Kakarott.json" "Units/Sally.json"', './a.out "Units/Kakarott.json" "Units/Maple.json"']
+    excepted_outputs = []
+    commands = []
     outputs = []
 
     error = ""
 
+    # commandsok beolvasása
+    file = open("commands.txt", "r")
+    for line in file:
+        commands.append(line.strip())
+    file.close
+
+    # excepted_outputs beolvsása
+    file = open("outputs.txt", "r")
+    for line in file:
+        excepted_outputs.append(line.strip())
+    file.close
+
+    # futási eredmények elmentése
     for i in range(len(excepted_outputs)):
         outputs.append(os.popen(commands[i]).read().strip())
 
+    # futási eredmények és várt eredmények vizsgálata
     for i in range(len(outputs)):
         if outputs[i] != excepted_outputs[i]:
             error += "Found some error...\n"
