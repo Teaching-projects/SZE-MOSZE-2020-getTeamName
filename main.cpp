@@ -3,14 +3,17 @@
 
 int main(int argc, char *argv[]) {
 
-    Creature* h1 = Creature::parseUnit(argv[1]);
-    Creature* h2 = Creature::parseUnit(argv[2]);
+    Creature* h1, *h2;
 
     try {
         h1 = Creature::parseUnit(argv[1]);
         h2 = Creature::parseUnit(argv[2]);
-    } catch (std::runtime_error re) {
-        re.what();
+    } catch (std::runtime_error& re) {
+        std::cerr << re.what();
+        return 1;
+    } catch (std::bad_alloc& ba) {
+        std::cerr << ba.what();
+        return 2;
     }
 
     while(!h1->isDead() && !h2->isDead()){
