@@ -3,6 +3,11 @@
 
 int main(int argc, char *argv[]) {
 
+    if (argc != 3) {
+        std::cerr << "Please give two json file to run the game! Example: ./a.out \"Maple.json\" \"Kakarott.json\" \n";
+        return 1;
+    }
+
     Creature* h1, *h2;
 
     try {
@@ -10,10 +15,10 @@ int main(int argc, char *argv[]) {
         h2 = Creature::parseUnit(argv[2]);
     } catch (std::runtime_error& re) {
         std::cerr << re.what();
-        return 1;
+        return 2;
     } catch (std::bad_alloc& ba) {
         std::cerr << ba.what();
-        return 2;
+        return 3;
     }
 
     while(!h1->isDead() && !h2->isDead()){
