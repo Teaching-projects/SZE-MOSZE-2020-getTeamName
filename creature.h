@@ -14,13 +14,16 @@ private:
     double life;
     const double damage;
     const std::string name;
+    double attackcooldown;
+    void attack(Creature*) const;
 public:
-    Creature(std::string, double, double);
+    Creature(std::string, double, double, double);
     Creature(const Creature&);
     double getLife() const {return life;}
     std::string getName() const {return name;}
     double getDamage() const {return damage;}
-    void attack(Creature*) const;
+    double getAttackcooldown() const {return attackcooldown;}
+    void fight(Creature*);
     bool isDead() const;
     static Creature* parseUnit(const std::string);
     static bool contains(std::string, char);

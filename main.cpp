@@ -21,15 +21,7 @@ int main(int argc, char *argv[]) {
         return 3;
     }
 
-    while(!h1->isDead() && !h2->isDead()){
-
-        if(!h1->isDead()) {
-            h1->attack(h2);
-        }
-        if(!h2->isDead()){
-            h2->attack(h1);
-        }
-    }
+    h1->fight(h2);
 
     if(h1->isDead()){
         std::cout << h2->getName() << " wins. Remaining HP: " << h2->getLife() << "\n";
