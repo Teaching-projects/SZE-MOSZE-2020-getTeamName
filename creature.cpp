@@ -20,31 +20,26 @@ void Creature::battle(Creature* uj){
     double max_life2 = uj->life;
     while(!this->isDead() && !uj->isDead())
     {
-        if(!this->isDead()) 
+        this->attack(uj);
+        this->experience += this->damage;
+        if (this->experience>=100)
         {
-            this->attack(uj);
-            this->experience += this->damage;
-            if (this->experience>=100)
-            {
-                this->level++;
-                this->experience -= 100;
-                this->damage += round(0.1 * this->damage);
-                max_life1 += round(0.1*max_life1);
-                this->life = max_life1;
-            }
+            this->level++;
+            this->experience -= 100;
+            this->damage += round(0.1 * this->damage);
+            max_life1 += round(0.1*max_life1);
+            this->life = max_life1;
         }
-        if(!uj->isDead())
+    
+        uj->attack(this);
+        uj->experience += uj->damage;
+        if(uj->experience>=100)
         {
-            uj->attack(this);
-            uj->experience += uj->damage;
-            if(uj->experience>=100)
-            {
-                uj->level++;
-                uj->experience -= 100;
-                uj->damage += round(0.1 * uj->damage);
-                max_life2 += round(0.1*max_life2);   
-                uj->life = max_life2;
-            }
+            uj->level++;
+            uj->experience -= 100;
+            uj->damage += round(0.1 * uj->damage);
+            max_life2 += round(0.1*max_life2);   
+            uj->life = max_life2;
         }
     }
 }
@@ -70,14 +65,13 @@ Creature* Creature::parseUnit(const std::string filename) {
           std::vector<std::string> result;
           int counter = 1;
           while (std::getline(file, newline)) {
-
               if (newline != "{" && newline != "}") {
                   int split = newline.find(":");
                   std::string temp = newline.substr(2,split - 2 );
                   temp = newline.substr(split + 2);
 
-                  if(counter < 3){
-                      temp = temp.substr(0,temp.length()-1);
+                  if(counter <= 3){
+                      temp = temp.substr(0,temp.length()-2);
                   }else{
                       counter=1;
                       temp = temp.substr(0,temp.length());
@@ -89,7 +83,7 @@ Creature* Creature::parseUnit(const std::string filename) {
                   counter++;
               }
           }
-          return new Creature(result[0], std::stod(result[1]), std::stod(result[2]), 0, 1);
+          return new Creature(result[1], std::stod(result[2]), std::stod(result[3]), 0, 1);
       }
     }
 

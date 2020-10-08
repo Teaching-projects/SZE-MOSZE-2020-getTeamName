@@ -31,7 +31,8 @@ int main(int argc, char *argv[]) {
 
     std::cout << std::endl;
 
-    delete h1, h2;
+    delete h1;
+    delete h2;
 
     return 0;
 }

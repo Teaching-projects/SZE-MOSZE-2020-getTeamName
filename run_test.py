@@ -27,6 +27,12 @@ def main():
     for i in range(len(outputs)):
         if outputs[i] != excepted_outputs[i]:
             error += "Found some error...\n"
+    
+    #valgrind futása
+    for i in commands:
+        os.popen("valgrind" + i)
+        if os.popen("echo $?" != 0):
+            error += "Memory leak...\n"
 
     if len(error) == 0: 
         sys.exit(0)

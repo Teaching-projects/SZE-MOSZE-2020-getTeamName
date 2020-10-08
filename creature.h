@@ -12,9 +12,9 @@
 class Creature{
 
 private:
+    const std::string name;
     double life;
     double damage;
-    const std::string name;
     double experience;
     int level;
 public:
