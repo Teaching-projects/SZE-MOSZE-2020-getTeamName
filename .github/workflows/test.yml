@@ -11,7 +11,7 @@ jobs:
       - run: sudo apt-get install cppcheck
       - run: sudo apt-get install valgrind
       - run: cppcheck *.cpp --enable=warning
-      - run: g++ -std=c++17 *.cpp -Wall -Wextra -g -fsanitizer=address
+      - run: g++ -std=c++17 *.cpp -Wall -Wextra -g -fsanitize=address
       - uses: actions/setup-python@v2
         with:
           python-version: '3.x'
