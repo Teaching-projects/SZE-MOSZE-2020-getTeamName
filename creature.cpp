@@ -65,30 +65,28 @@ Creature* Creature::parseUnit(const std::string filename) {
       } else {
         std::string name, newline;
           std::vector<std::string> result;
+          int counter = 1;
           while (std::getline(file, newline)) {
-              newline = newline.substr(0, newline.length()-1);
+
               if (newline != "{" && newline != "}") {
                   int split = newline.find(":");
                   std::string temp = newline.substr(2,split - 2 );
-
-                  if (temp.find('"')!= std::string::npos)
-                  {
-                      ReplaceAll2(temp, '"', "");
-                  }
-                  result.push_back(temp);
                   temp = newline.substr(split + 2);
 
-                  if (temp.find(',')!= std::string::npos){
-                      ReplaceAll2(temp, ',', "");
+                  if(counter < 3){
+                      temp = temp.substr(0,temp.length()-1);
+                  }else{
+                      counter=1;
+                      temp = temp.substr(0,temp.length());
                   }
-                  if (temp.find('"')!= std::string::npos){
+                  if (newline.find(temp)!= std::string::npos){
                       ReplaceAll2(temp, '"', "");
                   }
                   result.push_back(temp);
+                  counter++;
               }
-
           }
-          return new Creature(result[1], std::stod(result[3]), std::stod(result[5]), 0, 1);
+          return new Creature(result[0], std::stod(result[1]), std::stod(result[2]),0,1 );
       }
     }
 
