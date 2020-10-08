@@ -43,9 +43,7 @@ void Creature::fight(Creature* uj){
                 time += tmpCooldown2;
             }
         }
-
     }
-
 }
 
 bool Creature::isDead() const {
