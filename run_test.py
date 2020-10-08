@@ -30,15 +30,14 @@ def main():
     
     #valgrind futása
     for i in commands:
-        os.popen("valgrind" + i)
-        if os.popen("echo $?" != 0):
+        os.system("valgrind " + i)
+        if (os.system("echo $?") != 0):
             error += "Memory leak...\n"
 
     if len(error) == 0: 
         sys.exit(0)
     else: 
         sys.exit(1)
-
 
 if __name__ == "__main__":
     main()

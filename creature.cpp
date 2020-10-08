@@ -30,16 +30,18 @@ void Creature::battle(Creature* uj){
             max_life1 += round(0.1*max_life1);
             this->life = max_life1;
         }
-    
-        uj->attack(this);
-        uj->experience += uj->damage;
-        if(uj->experience>=100)
+        if (!uj->isDead())
         {
-            uj->level++;
-            uj->experience -= 100;
-            uj->damage += round(0.1 * uj->damage);
-            max_life2 += round(0.1*max_life2);   
-            uj->life = max_life2;
+            uj->attack(this);
+            uj->experience += uj->damage;
+            if(uj->experience>=100)
+            {
+                uj->level++;
+                uj->experience -= 100;
+                uj->damage += round(0.1 * uj->damage);
+                max_life2 += round(0.1*max_life2);   
+                uj->life = max_life2;
+            }
         }
     }
 }
