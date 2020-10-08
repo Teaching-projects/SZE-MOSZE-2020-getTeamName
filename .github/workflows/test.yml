@@ -8,6 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - run: sudo apt-get install cppcheck
+      - run: sudo apt-get install valgrind
       - run: cppcheck *.cpp --enable=warning
       - run: g++ -std=c++17 *.cpp -Wall -Wextra -g -fsanitizer=address
       - uses: actions/setup-python@v2
