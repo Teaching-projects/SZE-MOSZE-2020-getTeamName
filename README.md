@@ -14,6 +14,10 @@ A játék mindaddig tart, amíg valamelyik harcosnak az élete 0 nem lesz.
 
 Bemenetként 2 json fájlt vár a program. Ezekből a json fájlokból nyeri ki a harcosok adatait.
 
+### Dokumentáció elérhetőség:
+
+https://teaching-projects.github.io/SZE-MOSZE-2020-getTeamName/index.html
+
 ---
 
 *Almási Szabolcs*, *Beszedics Tamás*, *Élő Kristóf*
