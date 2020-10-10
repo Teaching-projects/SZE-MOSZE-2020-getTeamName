@@ -1,10 +1,9 @@
 import sys
 
-txt = open('artifact_cppcheck.txt')
-
-if (txt.find("error")) or (txt.find("warning")):
+txt = open("artifact_cppcheck.txt","r")
+txt_content = fd.read()
+if(("error" in txt_content) or ("warning" in txt_content)):
     sys.exit(1)
 else:
     sys.exit(0)
-
 txt.close()
