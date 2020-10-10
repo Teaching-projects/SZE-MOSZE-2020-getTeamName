@@ -10,14 +10,15 @@ jobs:
       - uses: actions/checkout@v2
       - run: sudo apt-get install cppcheck
       - run: sudo apt-get install valgrind
-      - run: cppcheck *.cpp --enable=warning
+      - run: cppcheck *.cpp --enable=warning --output-file=artifact_cppcheck.txt
       - name: Upload cppcheck as artifact
         uses: actions/upload-artifact@v2
         with:
           name: artifact_cppcheck
-          path: artifact_cppcheck.txt
+          path: ./artifact_cppcheck.txt
       - run: g++ -std=c++17 *.cpp -Wall -Wextra -g -fsanitize=address
       - uses: actions/setup-python@v2
         with:
           python-version: '3.x'
+      - run: python run_cppcheck_test.py
       - run: python run_test.py

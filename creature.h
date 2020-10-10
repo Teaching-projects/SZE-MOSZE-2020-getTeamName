@@ -17,7 +17,6 @@ private:
     double damage;
     double experience;
     int level;
-    int test;
 public:
     Creature(std::string, double, double, double,int);
     Creature(const Creature&);
