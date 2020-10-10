@@ -6,6 +6,16 @@ Creature::Creature(std::string name, double life, double damage, double experien
 Creature::Creature(const Creature& param):
     name(param.getName()), life(param.getDamage()), damage(param.getDamage()), experience(param.getExperience()), level(param.getLevel()) {}
 
+Creature& Creature::operator=(const Creature& param)
+{
+    this->name = param.getName();
+    this->life = param.getLife();
+    this->damage = param.getDamage();
+    this->experience = param.getExperience();
+    this->level = param.getLevel();
+    return *this;
+}
+
 void Creature::attack(Creature* uj) const {
     if(uj->life > 0){
         uj->life = (uj->life - this->getDamage());
@@ -62,7 +72,7 @@ Creature* Creature::parseUnit(const std::string filename) {
       if (!file.good()) {
         throw std::runtime_error(filename + " does not exists...\n");
       } else {
-        std::string name, newline;
+        std::string newline;
           std::vector<std::string> result;
           int counter = 1;
           while (std::getline(file, newline)) {
