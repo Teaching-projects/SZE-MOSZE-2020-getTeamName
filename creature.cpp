@@ -6,10 +6,6 @@ Creature::Creature(std::string name, double life, double damage, double experien
 Creature::Creature(const Creature& param):
     name(param.getName()), life(param.getDamage()), damage(param.getDamage()), experience(param.getExperience()), level(param.getLevel()) {}
 
-Creature& Creature::operator=(const Creature&){
-    return *this;
-};
-
 void Creature::attack(Creature* uj) const {
     if(uj->life > 0){
         uj->life = (uj->life - this->getDamage());

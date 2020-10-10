@@ -20,7 +20,6 @@ private:
 public:
     Creature(std::string, double, double, double,int);
     Creature(const Creature&);
-    Creature& operator=(const Creature&);
     double getLife() const {return life;}
     std::string getName() const {return name;}
     double getDamage() const {return damage;}
