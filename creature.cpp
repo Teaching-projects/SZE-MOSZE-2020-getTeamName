@@ -24,8 +24,8 @@ void Creature::battle(Creature* uj){
         this->experience += this->damage;
         if (this->experience>=100)
         {
-            this->level++;
-            this->experience -= 100;
+            this->level += this->experience/100;
+            this->experience = std::fmod(this->experience, 100);
             this->damage += round(0.1 * this->damage);
             max_life1 += round(0.1*max_life1);
             this->life = max_life1;

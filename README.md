@@ -12,6 +12,8 @@ A játék jelen verziója a lefuttatástt követően kiírja, hogy melyik harcos
 
 A játék mindaddig tart, amíg valamelyik harcosnak az élete 0 nem lesz.
 
+A játék során a harcosok minden 100 sebzés bevitele után szintet tudnak lépni, ami megnöveli a maximális sebzésüket és életerejüket 10%-kal. Az aktuális életerőt pedig a maximálisra állítja.
+
 Bemenetként 2 json fájlt vár a program. Ezekből a json fájlokból nyeri ki a harcosok adatait.
 
 ---
