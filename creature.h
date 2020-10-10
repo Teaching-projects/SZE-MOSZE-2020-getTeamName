@@ -29,7 +29,7 @@ public:
     void attack(Creature*) const;
     bool isDead() const;
     void battle(Creature*);
-    static Creature* parseUnit(const std::string);
+    static Creature* parseUnit(const std::string&);
     static bool contains(std::string, char);
 };
 

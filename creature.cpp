@@ -67,7 +67,7 @@ static inline void ReplaceAll2(std::string &str, const char& from, const std::st
     }
 }
 
-Creature* Creature::parseUnit(const std::string filename) {
+Creature* Creature::parseUnit(const std::string& filename) {
       std::ifstream file(filename);
       if (!file.good()) {
         throw std::runtime_error(filename + " does not exists...\n");
@@ -79,8 +79,7 @@ Creature* Creature::parseUnit(const std::string filename) {
 
               if (newline != "{" && newline != "}") {
                   int split = newline.find(":");
-                  std::string temp = newline.substr(2,split - 2 );
-                  temp = newline.substr(split + 2);
+                  std::string temp = newline.substr(split + 2);
 
                   if(counter < 3){
                       temp = temp.substr(0,temp.length()-1);
