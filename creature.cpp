@@ -1,10 +1,10 @@
 #include "creature.h"
 
-Creature::Creature(std::string name, double life, double damage):
-    name(name), life(life), damage(damage) {}
+Creature::Creature(std::string name, double life, double damage, double attackcooldown):
+    name(name), life(life), damage(damage), attackcooldown(attackcooldown) {}
 
 Creature::Creature(const Creature& param):
-    name(param.getName()), life(param.getDamage()), damage(param.getDamage()) {}
+    name(param.getName()), life(param.getDamage()), damage(param.getDamage()), attackcooldown(param.getAttackcooldown()) {}
 
 
 void Creature::attack(Creature* uj) const {
@@ -12,6 +12,38 @@ void Creature::attack(Creature* uj) const {
         uj->life = (uj->life - this->getDamage());
     }
 
+}
+
+void Creature::fight(Creature* uj){
+    if(!this->isDead() && !uj->isDead()){
+        this->attack(uj);
+    }
+    if(!this->isDead() && !uj->isDead()){
+        uj->attack(this);
+    }
+
+    double time = 0;
+    double tmpCooldown1 = this->attackcooldown;
+    double tmpCooldown2 = uj->attackcooldown;
+    while(!this->isDead() && !uj->isDead()){
+
+        if(this->attackcooldown <= uj->attackcooldown){
+            if(!this->isDead()) {
+                this->attack(uj);
+
+                this->attackcooldown += tmpCooldown1;
+                time += tmpCooldown1;
+            }
+        }
+        else{
+            if(!uj->isDead()){
+                uj->attack(this);
+
+                uj->attackcooldown += tmpCooldown2;
+                time += tmpCooldown2;
+            }
+        }
+    }
 }
 
 bool Creature::isDead() const {
@@ -41,7 +73,7 @@ Creature* Creature::parseUnit(const std::string filename) {
                   std::string temp = newline.substr(2,split - 2 );
                   temp = newline.substr(split + 2);
 
-                  if(counter < 3){
+                  if(counter < 4){
                       temp = temp.substr(0,temp.length()-1);
                   }else{
                       counter=1;
@@ -54,7 +86,7 @@ Creature* Creature::parseUnit(const std::string filename) {
                   counter++;
               }
           }
-          return new Creature(result[0], std::stod(result[1]), std::stod(result[2]));
+          return new Creature(result[0], std::stod(result[1]), std::stod(result[2]),std::stod(result[3]) );
       }
     }
 
