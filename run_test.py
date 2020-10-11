@@ -30,10 +30,11 @@ def main():
     
     #valgrind futása
     for i in commands:
-        os.system("valgrind " + i)
-        if (os.system("echo $?") != 0):
-            error += "Memory leak...\n"
-
+        os.system("valgrind " + i + " --leak-check=full --error-exitcode=5")
+        if (os.system("echo $?") == 5):
+            print("Memory leak...\n")
+            sys.exit(5)
+    
     if len(error) == 0: 
         sys.exit(0)
     else: 

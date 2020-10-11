@@ -17,6 +17,7 @@ private:
     double damage;
     double experience;
     int level;
+    void attack(Creature*) const;
 public:
     Creature(std::string, double, double, double,int);
     Creature(const Creature&);
@@ -26,7 +27,6 @@ public:
     double getDamage() const {return damage;}
     double getExperience() const {return experience;}
     double getLevel() const {return level;}
-    void attack(Creature*) const;
     bool isDead() const;
     void battle(Creature*);
     static Creature* parseUnit(const std::string&);

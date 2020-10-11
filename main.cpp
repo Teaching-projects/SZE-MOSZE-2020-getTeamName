@@ -8,14 +8,17 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
+    std::ifstream file1(argv[1]);
+    std::ifstream file2(argv[2]);
+    if (!file1.good() || !file2.good()) {
+        std::cerr <<"Bad input!\n";
+        return 2;
+    }
     Creature* h1, *h2;
-
+    
     try {
         h1 = Creature::parseUnit(argv[1]);
         h2 = Creature::parseUnit(argv[2]);
-    } catch (std::runtime_error& re) {
-        std::cerr << re.what();
-        return 2;
     } catch (std::bad_alloc& ba) {
         std::cerr << ba.what();
         return 3;
