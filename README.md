@@ -16,6 +16,10 @@ A játék során a harcosok minden 100 sebzés bevitele után szintet tudnak lé
 
 Bemenetként 2 json fájlt vár a program. Ezekből a json fájlokból nyeri ki a harcosok adatait.
 
+### Dokumentáció elérhetőség:
+
+https://teaching-projects.github.io/SZE-MOSZE-2020-getTeamName/index.html
+
 ---
 
 *Almási Szabolcs*, *Beszedics Tamás*, *Élő Kristóf*

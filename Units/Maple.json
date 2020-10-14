@@ -1,5 +1,6 @@
 {
   "name" : "Maple",
-  "hp" : 300,
-  "dmg" : 10
+  "hp" : 150,
+  "dmg" : 10,
+  "attackcooldown" : 3
 }

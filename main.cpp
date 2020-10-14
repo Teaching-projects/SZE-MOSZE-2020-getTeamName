@@ -36,7 +36,7 @@ int main(int argc, char *argv[]) {
         return 3;
     }
 
-    h1->battle(h2);
+    h1->fight(h2);
 
     if(h1->isDead()){
         std::cout << h2->getName() << " wins. Remaining HP: " << h2->getLife() << "\n";
