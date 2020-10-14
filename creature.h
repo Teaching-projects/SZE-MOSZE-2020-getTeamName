@@ -51,7 +51,7 @@ public:
      *
      * \param Creature objektumra mutato
      */
-    void fight(Creature*/** [in] Creature objektumra mutato*/); ///< Ket Creature objektum kozotti harc megvalositasa
+    void fight(Creature* /** [in] Creature objektumra mutato*/); ///< Ket Creature objektum kozotti harc megvalositasa
     /**
      * \brief Visszaadja, hogy az adott Creature el-e meg
      * \return Ha az eletero nulla, akkor true-val ter vissza, ellenben false-al
