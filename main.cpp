@@ -1,5 +1,6 @@
 #include <iostream>
 #include "creature.h"
+#include "BadJsonException.h"
 
 int main(int argc, char *argv[]) {
 
@@ -19,6 +20,9 @@ int main(int argc, char *argv[]) {
     } catch (std::bad_alloc& ba) {
         std::cerr << ba.what();
         return 3;
+    } catch (BadJsonException e) {
+        std::cerr << e.what() << std::endl;
+        return e.getErrorCode();
     }
 
     while(!h1->isDead() && !h2->isDead()){

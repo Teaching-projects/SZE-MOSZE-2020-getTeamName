@@ -1,17 +1,17 @@
 #pragma once
-
 #include <iostream>
 #include <list>
 #include <map>
 #include <fstream>
 #include <string>
-
+#include "BadJsonException.h"
 
 class JsonParser {
 	private:
 		std::ifstream* file;
 		std::map<std::string, std::string> data;
 		void parseJson();
+		bool validateJson(std::list<std::string>);
 
 	public:
 		JsonParser(std::string fName);
