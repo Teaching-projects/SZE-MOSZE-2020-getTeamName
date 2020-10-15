@@ -1,15 +1,36 @@
 #include "JsonParser.h"
 #include <vector>
+#include <sstream>
 
-JsonParser::JsonParser(std::string fName) {
-    file = new std::ifstream(fName);
-    parseJson();
+JsonParser::JsonParser(std::string stringInput) {
+    if (stringInput.find(".json") != std::string::npos) {
+        std::ifstream file(stringInput);
+        std::list<std::string> lines;
+        std::string line;
+        while (std::getline(file, line)) {
+            lines.push_back(line);
+        }
+        parseJson(lines);
+    } else {
+        std::stringstream ss(stringInput);
+        std::string temp = "";
+        std::list<std::string> lines;
+        while(std::getline(ss, temp)) {
+            lines.push_back(temp);
+        }
+        parseJson(lines);
+    }
 }
 
-JsonParser::JsonParser(std::ifstream& pFile) {
-    file = &pFile;
-    parseJson();
+JsonParser::JsonParser(std::istream& stream) {
+    std::list<std::string> lines;
+    std::string line;
+    while (std::getline(stream, line)) {
+        lines.push_back(line);
+    }
+    parseJson(lines);
 }
+
 
 double JsonParser::getDouble(std::string key) const {
     return std::stod(data.at(key));
@@ -23,16 +44,11 @@ std::string JsonParser::getString(std::string key) const {
     return data.at(key);
 }
 
-void JsonParser::parseJson() {
+void JsonParser::parseJson(std::list<std::string>& list) {
     bool isKey = false;
     std::string line;
-    std::list<std::string> lines;
+    std::list<std::string> lines = list;
     std::list<std::string> keyValues;
-    
-    while (std::getline(*file, line)) {
-        lines.push_back(line);
-    }
-
     validateJson(lines);
     lines.pop_back();
     lines.pop_front();

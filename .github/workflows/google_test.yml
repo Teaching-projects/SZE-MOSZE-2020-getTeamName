@@ -6,9 +6,12 @@ jobs:
   build_and_test:
     runs-on: ubuntu-latest
     steps:
-      - name: Install google test
+      - name: Install google test dependecies
         run: sudo apt install libgtest-dev && cd /usr/src/gtest && sudo cmake . && sudo make && sudo cp *.a /usr/lib && sudo ln -s /usr/lib/libgtest.a /usr/local/lib/libgtest.a && sudo ln -s /usr/lib/libgtest_main.a /usr/local/lib/libgtest_main.a
       - uses: actions/checkout@v2
+      - name: cmake
         run: cd google_test && cmake .
+      - name: make build environment
         run: cd google_test && make
+      - name: run google_test
         run: cd google_test && ./google_test_output
