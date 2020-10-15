@@ -3,7 +3,7 @@
 #include <gtest/gtest.h>
 
 TEST(JsonParser, filename_parsing_ok) {
-    JsonParser jsonParser("./Units/Kakarott.json");
+    JsonParser jsonParser("../Units/Kakarott.json");
 
 	const std::map<std::string, std::string> valid = jsonParser.getData();
 	std::map<std::string, std::string> expected
@@ -19,11 +19,11 @@ TEST(JsonParser, filename_parsing_ok) {
 }
 
 TEST(JsonParser, bad_input_file) {
-	ASSERT_THROW(JsonParser("./Units/Bad1.json"), BadJsonException);
+	ASSERT_THROW(JsonParser("../Units/Bad1.json"), BadJsonException);
 }
 
 TEST(JsonParser, ifstream_ok) {
-	std::ifstream file("./Units/Kakarott.json");
+	std::ifstream file("../Units/Kakarott.json");
 	JsonParser jsonParser(file);
 
 	const std::map<std::string, std::string> valid = jsonParser.getData();
@@ -40,7 +40,7 @@ TEST(JsonParser, ifstream_ok) {
 }
 
 TEST(JsonParser, string_input_ok) {
-	std::ifstream file("./Units/Kakarott.json");
+	std::ifstream file("../Units/Kakarott.json");
 	std::string temp = "", input = "";
 	while (std::getline(file, temp)) {
 		input += temp + "\n";
