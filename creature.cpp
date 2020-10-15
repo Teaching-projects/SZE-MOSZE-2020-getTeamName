@@ -24,19 +24,30 @@ void Creature::attack(Creature* uj) const {
 
 }
 
-void Creature::levelUp(double& experience, int& level, double& damage, double& max_life, double& life, double& tmp_cooldown){
+void Creature::levelUp(double& max_life){
     int tmp_exp = experience / 100;
     int counter=1;
     level += experience/100;
     experience = std::fmod(experience, 100);
     while(tmp_exp >= counter){
         damage += round(0.1 * damage);
-        tmp_cooldown -= 0.1 * tmp_cooldown;
+        attackcooldown -= 0.1 * attackcooldown;
         max_life += round(0.1*max_life);
         counter++;
     }
     life = max_life;
 }
+
+void Creature::overkill(Creature* uj)
+{
+    if(uj->life < this->damage){
+        this->experience += uj->life;
+    }
+    else{
+        this->experience += this->damage;
+    }
+}
+
 
 void Creature::fight(Creature* uj){
     double max_life1 = this->life;
@@ -46,51 +57,44 @@ void Creature::fight(Creature* uj){
     double tmpCooldown1 = this->attackcooldown;
     double tmpCooldown2 = uj->attackcooldown;
     if(!this->isDead() && !uj->isDead()){
+        this->overkill(uj);
         this->attack(uj);
-        this->experience += this->damage;
-
         if (this->experience>=100){
-            levelUp(this->experience, this->level, this->damage, max_life1, this->life, tmpCooldown1);
-            this->attackcooldown += tmpCooldown1;
-            time += tmpCooldown1;
+            this->levelUp(max_life1);
         }
+        tmpCooldown1 = this->attackcooldown;
     }
     if(!uj->isDead()){
+        uj->overkill(this);
         uj->attack(this);
-        uj->experience += uj->damage;
-
         if(uj->experience>=100){
-            levelUp(uj->experience, uj->level, uj->damage, max_life2, uj->life, tmpCooldown2);
-            uj->attackcooldown += tmpCooldown2;
-            time += tmpCooldown2;
+            uj->levelUp(max_life2);
         }
+        tmpCooldown2 = uj->attackcooldown;
     }
 
     while(!this->isDead() && !uj->isDead()){
-        if(this->attackcooldown <= uj->attackcooldown){
+        if(tmpCooldown1 <= tmpCooldown2){
             if(!this->isDead()) {
+                this->overkill(uj);
                 this->attack(uj);
-                this->experience += this->damage;
-
                 if (this->experience>=100){
-                   levelUp(this->experience, this->level, this->damage, max_life1, this->life, tmpCooldown1);
-                   this->attackcooldown += tmpCooldown1;
-                   time += tmpCooldown1;
+                   this->levelUp(max_life1);
                 }
-
+            time += tmpCooldown1;
+            tmpCooldown1 += this->attackcooldown;
             }
         }
+        
         else{
             if(!uj->isDead()){
+                uj->overkill(this);
                 uj->attack(this);
-                uj->experience += uj->damage;
-
                 if(uj->experience>=100){
-                    levelUp(uj->experience, uj->level, uj->damage, max_life2, uj->life, tmpCooldown2);
-                    uj->attackcooldown += tmpCooldown2;
-                    time += tmpCooldown2;
+                    uj->levelUp(max_life2);
                 }
-
+            time += tmpCooldown2;
+            tmpCooldown2 += uj->attackcooldown;
             }
         }
     }
@@ -108,7 +112,7 @@ static inline void ReplaceAll2(std::string &str, const char& from, const std::st
     }
 }
 
-Creature* Creature::parseUnit(const std::string filename) {
+Creature* Creature::parseUnit(const std::string& filename) {
     std::ifstream file(filename);
     if (!file.good()) {
         throw std::runtime_error(filename + " does not exists...\n");

@@ -35,6 +35,8 @@ private:
      * \param Creature objektumra mutato
      */
     void attack(Creature*) const; ///< A Creature tamadasa egy masik Creature objektum ellen
+    void levelUp(double&); ///< Creature osztály szintlépését hajtja végre
+    void overkill(Creature*); ///< Azt vizsgálja, hogy a megadott Creature életereje kevesebb-e, mint a kiosztott sebzés.
 
 public:
     Creature(std::string, double, double, double, double, int); ///< Creature osztaly konstruktora
@@ -62,8 +64,7 @@ public:
      * \param String
      * \return Creature-re mutato objektummal ter vissza
      */
-    static Creature* parseUnit(const std::string /** [in] string*/);
-    void levelUp(double&, int&, double&, double&, double&, double&); ///< Creature osztály szintlépését hajtja végre
+    static Creature* parseUnit(const std::string& /** [in] string*/);
 };
 
 #endif // CREATURE_H

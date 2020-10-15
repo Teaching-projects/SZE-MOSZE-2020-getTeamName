@@ -1,6 +1,6 @@
-Sally wins. Remaining HP: 726
-Kakarott wins. Remaining HP: 1299
+Sally wins. Remaining HP: 485
 Kakarott wins. Remaining HP: 733
-Sally wins. Remaining HP: 726
-Kakarott wins. Remaining HP: 1299
-Kakarott wins. Remaining HP: 733
+Kakarott wins. Remaining HP: 550
+Sally wins. Remaining HP: 485
+Kakarott wins. Remaining HP: 703
+Kakarott wins. Remaining HP: 550
