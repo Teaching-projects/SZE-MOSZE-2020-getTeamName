@@ -9,15 +9,30 @@ int main(int argc, char *argv[]) {
     }
 
     Creature* h1, *h2;
-
+    
     try {
         h1 = Creature::parseUnit(argv[1]);
-        h2 = Creature::parseUnit(argv[2]);
-    } catch (std::runtime_error& re) {
+    } 
+    catch (std::runtime_error& re) {
         std::cerr << re.what();
         return 2;
-    } catch (std::bad_alloc& ba) {
+    }
+    catch (std::bad_alloc& ba) {
         std::cerr << ba.what();
+        return 3;
+    }
+
+    try {
+        h2 = Creature::parseUnit(argv[2]);
+    } 
+    catch (std::runtime_error& re) {
+        std::cerr << re.what();
+        delete h1;
+        return 2;
+    }
+    catch (std::bad_alloc& ba) {
+        std::cerr << ba.what();
+        delete h1;
         return 3;
     }
 
@@ -31,7 +46,8 @@ int main(int argc, char *argv[]) {
 
     std::cout << std::endl;
 
-    delete h1, h2;
+    delete h1;
+    delete h2;
 
     return 0;
 }
