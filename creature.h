@@ -25,6 +25,7 @@ class Creature{
 private:
     std::string name; ///< Neve a Creature-nek
     double life; ///< Elete a Creature-nek
+    double max_life; ///< Maximalis eletereje a Creature-nek
     double damage; ///< Sebzese a Creature-nek
     double attackcooldown; ///<Ketto sebzes kozotti eltelt ido az adott Creature-n belul
     double experience; ///<A Creature tapasztalati pontjai
@@ -35,7 +36,7 @@ private:
      * \param Creature objektumra mutato
      */
     void attack(Creature*) const; ///< A Creature tamadasa egy masik Creature objektum ellen
-    void levelUp(double&); ///< Creature osztály szintlépését hajtja végre
+    void levelUp(); ///< Creature osztály szintlépését hajtja végre
     void overkill(Creature*); ///< Azt vizsgálja, hogy a megadott Creature életereje kevesebb-e, mint a kiosztott sebzés.
 
 public:
@@ -43,6 +44,7 @@ public:
     Creature(const Creature&); ///< Creature osztaly konstruktora
     Creature& operator=(const Creature&); ///< Creature osztály hozzárendelés operátora
     double getLife() const {return life;} ///< Egyszeru konstans Getter fuggveny, ami visszater a Creature eletenek ertekevel
+    double getMax_Life() const {return max_life;} ///< Egyszeru konstans Getter fuggveny, ami visszater a Creature maximalis eleterejenek ertekevel
     std::string getName() const {return name;} ///< Egyszeru konstans Getter fuggveny, ami visszater a Creature nevenek ertekevel
     double getDamage() const {return damage;} ///< Egyszeru konstans Getter fuggveny, ami visszater a Creature sebzesenek ertekevel
     double getExperience() const {return experience;} ///< Egyszeru konstans Getter fuggveny, ami visszater a Creature tapasztalati pontjaival

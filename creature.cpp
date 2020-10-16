@@ -1,15 +1,16 @@
 #include "creature.h"
 
 Creature::Creature(std::string name, double life, double damage, double attackcooldown, double experience, int level):
-    name(name), life(life), damage(damage), attackcooldown(attackcooldown), experience(experience), level(level) {}
+    name(name), life(life), max_life(life), damage(damage), attackcooldown(attackcooldown), experience(experience), level(level) {}
 
 Creature::Creature(const Creature& param):
-    name(param.getName()), life(param.getDamage()), damage(param.getDamage()), attackcooldown(param.getAttackcooldown()), experience(param.getExperience()), level(param.getLevel()) {}
+    name(param.getName()), life(param.getDamage()), max_life(param.getMax_Life()), damage(param.getDamage()), attackcooldown(param.getAttackcooldown()), experience(param.getExperience()), level(param.getLevel()) {}
 
 Creature& Creature::operator=(const Creature& param)
 {
     this->name = param.getName();
     this->life = param.getLife();
+    this->max_life = param.getMax_Life();
     this->damage = param.getDamage();
     this->attackcooldown = param.getAttackcooldown();
     this->experience = param.getExperience();
@@ -24,7 +25,7 @@ void Creature::attack(Creature* uj) const {
 
 }
 
-void Creature::levelUp(double& max_life){
+void Creature::levelUp(){
     int tmp_exp = experience / 100;
     int counter=1;
     level += experience/100;
@@ -50,9 +51,6 @@ void Creature::overkill(Creature* uj)
 
 
 void Creature::fight(Creature* uj){
-    double max_life1 = this->life;
-    double max_life2 = uj->life;
-
     double time = 0;
     double tmpCooldown1 = this->attackcooldown;
     double tmpCooldown2 = uj->attackcooldown;
@@ -60,7 +58,7 @@ void Creature::fight(Creature* uj){
         this->overkill(uj);
         this->attack(uj);
         if (this->experience>=100){
-            this->levelUp(max_life1);
+            this->levelUp();
         }
         tmpCooldown1 = this->attackcooldown;
     }
@@ -68,7 +66,7 @@ void Creature::fight(Creature* uj){
         uj->overkill(this);
         uj->attack(this);
         if(uj->experience>=100){
-            uj->levelUp(max_life2);
+            uj->levelUp();
         }
         tmpCooldown2 = uj->attackcooldown;
     }
@@ -79,7 +77,7 @@ void Creature::fight(Creature* uj){
                 this->overkill(uj);
                 this->attack(uj);
                 if (this->experience>=100){
-                   this->levelUp(max_life1);
+                   this->levelUp();
                 }
             time += tmpCooldown1;
             tmpCooldown1 += this->attackcooldown;
@@ -91,7 +89,7 @@ void Creature::fight(Creature* uj){
                 uj->overkill(this);
                 uj->attack(this);
                 if(uj->experience>=100){
-                    uj->levelUp(max_life2);
+                    uj->levelUp();
                 }
             time += tmpCooldown2;
             tmpCooldown2 += uj->attackcooldown;
