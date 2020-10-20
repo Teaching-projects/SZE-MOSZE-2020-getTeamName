@@ -41,8 +41,6 @@ int main(int argc, char *argv[]) {
         std::cout << h1->getName() << " wins. Remaining HP: " << h1->getLife() << "\n";
     }
 
-    std::cout << std::endl;
-
     delete h1, h2;
 
     return 0;

@@ -3,8 +3,10 @@
 #include <sstream>
 
 JsonParser::JsonParser(std::string stringInput) {
-    if (stringInput.find(".json") != std::string::npos) {
-        std::ifstream file(stringInput);
+    std::ifstream file;
+    file.open(stringInput);
+    
+    if (file.good()) {
         std::list<std::string> lines;
         std::string line;
         while (std::getline(file, line)) {
@@ -94,9 +96,20 @@ bool JsonParser::validateJson(std::list<std::string> lines) {
     }
     
     for (int i = 0; i < linesVector.size(); i++) {
+        bool isKey = false;
         std::string tempString = "";
         for (char iter : linesVector[i]) {
-            if (iter != ' ') {
+            if (iter == ' ' && isKey) {
+                tempString += iter;
+            } else if (iter == '"' && !isKey) {
+                isKey = true;
+                tempString += iter;
+            } else if (iter == '"' && isKey) {
+                isKey = false;
+                tempString += iter;
+            } else if (iter == ' ' && !isKey) {
+                continue;
+            } else {
                 tempString += iter;
             }
         }
