@@ -9,8 +9,9 @@ TEST(JsonParser, filename_parsing_ok) {
 	std::map<std::string, std::string> expected
 	{
 		{"name", "Kakarott"},
-		{"hp", "30000"},
-		{"dmg", "9000"}
+		{"hp", "500"},
+		{"dmg", "420"},
+		{"attackcooldown", "2"}
 	};
 
 	for (auto&& iter : valid) {
@@ -30,8 +31,9 @@ TEST(JsonParser, ifstream_ok) {
 	std::map<std::string, std::string> expected
 	{
 		{"name", "Kakarott"},
-		{"hp", "30000"},
-		{"dmg", "9000"}
+		{"hp", "500"},
+		{"dmg", "420"},
+		{"attackcooldown", "2"}
 	};
 
 	for (auto&& iter : valid) {
@@ -50,8 +52,9 @@ TEST(JsonParser, string_input_ok) {
 	std::map<std::string, std::string> expected
 	{
 		{"name", "Kakarott"},
-		{"hp", "30000"},
-		{"dmg", "9000"}
+		{"hp", "500"},
+		{"dmg", "420"},
+		{"attackcooldown", "2"}
 	};
 
 	for (auto&& iter : valid) {
