@@ -103,15 +103,7 @@ bool Creature::isDead() const {
     return this->getLife() <= 0;
 }
 
-static inline void ReplaceAll2(std::string &str, const char& from, const std::string& to) {
-    size_t start_pos = 0;
-    while((start_pos = str.find(from, start_pos)) != std::string::npos) {
-        str.replace(start_pos, 1, to);
-        start_pos += to.length();
-    }
-}
-
-Creature* Creature::parseUnit(const std::string filename) {
+Creature* Creature::parseUnit(const std::string& filename) {
     JsonParser jsonParser(filename);
-    return new Creature(jsonParser.getString("name"), jsonParser.getDouble("hp"), jsonParser.getDouble("dmg"));
+    return new Creature(jsonParser.getString("name"), jsonParser.getDouble("hp"), jsonParser.getDouble("dmg"), jsonParser.getDouble("attackcooldown"), 0, 1);
 }
