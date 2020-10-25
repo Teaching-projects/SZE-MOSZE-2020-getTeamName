@@ -10,14 +10,15 @@ int main(int argc, char *argv[]) {
     }
 
     Creature* h1, *h2;
-
+    
     try {
         h1 = Creature::parseUnit(argv[1]);
-        h2 = Creature::parseUnit(argv[2]);
-    } catch (std::runtime_error& re) {
+    } 
+    catch (std::runtime_error& re) {
         std::cerr << re.what();
         return 2;
-    } catch (std::bad_alloc& ba) {
+    }
+    catch (std::bad_alloc& ba) {
         std::cerr << ba.what();
         return 3;
     } catch (BadJsonException e) {
@@ -25,15 +26,21 @@ int main(int argc, char *argv[]) {
         return e.getErrorCode();
     }
 
-    while(!h1->isDead() && !h2->isDead()){
-
-        if(!h1->isDead()) {
-            h1->attack(h2);
-        }
-        if(!h2->isDead()){
-            h2->attack(h1);
-        }
+    try {
+        h2 = Creature::parseUnit(argv[2]);
+    } 
+    catch (std::runtime_error& re) {
+        std::cerr << re.what();
+        delete h1;
+        return 2;
     }
+    catch (std::bad_alloc& ba) {
+        std::cerr << ba.what();
+        delete h1;
+        return 3;
+    }
+
+    h1->fight(h2);
 
     if(h1->isDead()){
         std::cout << h2->getName() << " wins. Remaining HP: " << h2->getLife() << "\n";
@@ -42,6 +49,5 @@ int main(int argc, char *argv[]) {
     }
 
     delete h1, h2;
-
     return 0;
 }
