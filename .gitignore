@@ -4,3 +4,5 @@
 *.out
 .DS_Store
 .vscode
+.idea
+google_test_output
