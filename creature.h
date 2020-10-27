@@ -37,7 +37,7 @@ private:
      */
     void attack(Creature*) const; ///< A Creature tamadasa egy masik Creature objektum ellen
     void levelUp(); ///< Creature osztály szintlépését hajtja végre
-    void overkill(Creature*); ///< Azt vizsgálja, hogy a megadott Creature életereje kevesebb-e, mint a kiosztott sebzés.
+    void overkill(Creature*); ///< Annyi tapasztalati pontot kap a Creature, amennyi eleterot sebzett egy másik Creature-re
 
 public:
     Creature(std::string, double, double, double, double, int); ///< Creature osztaly konstruktora
@@ -64,7 +64,7 @@ public:
     /**
      * \brief JSON-ben kapott adatokat elemzi
      * \param String
-     * \return Creature-re mutato objektummal ter vissza
+     * \return Creature-re mutato objektummal ter vissza a fuggveny
      */
     static Creature* parseUnit(const std::string& /** [in] string*/);
 };
