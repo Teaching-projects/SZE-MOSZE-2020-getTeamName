@@ -3,9 +3,7 @@ name: Documentation
 on:
   push:
     branches:	
-      - main
-      - attackspeed
-      - gh-pages
+      - master
 
 jobs:
   doxygen:

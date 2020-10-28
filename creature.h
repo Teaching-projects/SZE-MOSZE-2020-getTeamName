@@ -48,7 +48,7 @@ public:
     std::string getName() const {return name;} ///< Egyszeru konstans Getter fuggveny, ami visszater a Creature nevenek ertekevel
     double getDamage() const {return damage;} ///< Egyszeru konstans Getter fuggveny, ami visszater a Creature sebzesenek ertekevel
     double getExperience() const {return experience;} ///< Egyszeru konstans Getter fuggveny, ami visszater a Creature tapasztalati pontjaival
-    double getLevel() const {return level;} ///< Egyszeru konstans Getter fuggveny, ami visszater a Creature szintjének értékével
+    int getLevel() const {return level;} ///< Egyszeru konstans Getter fuggveny, ami visszater a Creature szintjének értékével
     double getAttackcooldown() const {return attackcooldown;} ///< Egyszeru konstans Getter fuggveny, ami visszater a Creature 2 tamadasa kozti eltelt ido ertekevel
     /**
      * \brief Ket Creature objektum kozotti harc megvalositasa
