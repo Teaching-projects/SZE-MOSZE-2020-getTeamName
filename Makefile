@@ -14,13 +14,13 @@ tests: rpg cppcheck secondary_cppcheck valgrind outputs
 rpg: $(OBJS)
 	$(CC) $(CFLAGS) -o rpg $(OBJS)
 
-creature.o: creature.cpp
+creature.o: creature.cpp creature.h
 	$(CC) $(CFLAGS) -c creature.cpp
 
-JsonParser.o: JsonParser.cpp
+JsonParser.o: JsonParser.cpp JsonParser.h BadJsonException.h
 	$(CC) $(CFLAGS) -c JsonParser.cpp
 
-main.o: main.cpp
+main.o: main.cpp creature.h
 	$(CC) $(CFLAGS) -c main.cpp
 
 cppcheck:

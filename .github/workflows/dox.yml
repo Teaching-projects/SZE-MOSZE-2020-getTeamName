@@ -3,8 +3,7 @@ name: Documentation
 on:
   push:
     branches:	
-      - main
-      - gh-pages
+      - master
 
 jobs:
   doxygen:
