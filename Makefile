@@ -9,12 +9,12 @@ VLGRNDFLAGS:= --leak-check=full --error-exitcode=3
 VLGRNDJSONS:=  ./rpg Units/Kakarott.json Units/Maple.json
 RUNCPP := creature.cpp JsonParser.cpp main.cpp
 
-tests: rpg cppcheck secondary_cppcheck valgrind outputs
+tests: rpg cppcheck_warnings cppcheck_style_and_performance valgrind_memory_leak_check correct_output_check
 
 rpg: $(OBJS)
 	$(CC) $(CFLAGS) -o rpg $(OBJS)
 
-creature.o: creature.cpp creature.h
+creature.o: creature.cpp creature.h JsonParser.h
 	$(CC) $(CFLAGS) -c creature.cpp
 
 JsonParser.o: JsonParser.cpp JsonParser.h BadJsonException.h
@@ -23,20 +23,20 @@ JsonParser.o: JsonParser.cpp JsonParser.h BadJsonException.h
 main.o: main.cpp creature.h
 	$(CC) $(CFLAGS) -c main.cpp
 
-cppcheck:
+cppcheck_warnings:
 	$(CPPCH) $(RUNCPP) $(CPPFLAGS)
 
-secondary_cppcheck:
+cppcheck_style_and_performance:
 	$(CPPCH) $(RUNCPP) $(CPPFSECFLAGS)
 
-valgrind:
+valgrind_memory_leak_check:
 	$(VLGRND) $(VLGRNDFLAGS) $(VLGRNDJSONS)
 
-outputs:
+correct_output_check:
 	python3 run_test.py
 
 unittest:
 	cd google_test && ./google_test_output
 
-doc:
+generate_documentation:
 	doxygen doxconf
