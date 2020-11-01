@@ -78,6 +78,7 @@ TEST(CreatureTests, GoodParse)
     EXPECT_NO_THROW(Creature::parseUnit("../Units/Kakarott.json"));
     EXPECT_NO_THROW(Creature::parseUnit("../Units/Maple.json"));
     EXPECT_NO_THROW(Creature::parseUnit("../Units/Sally.json"));
+    EXPECT_THROW(JsonParser("../Units/Bad1.json"), BadJsonException);
 }
 
 TEST(CreatureTests, ShuffledJSONTest)
