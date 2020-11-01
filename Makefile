@@ -14,13 +14,13 @@ tests: rpg cppcheck_warnings cppcheck_style_and_performance valgrind_memory_leak
 rpg: $(OBJS)
 	$(CC) $(CFLAGS) -o rpg $(OBJS)
 
-creature.o: creature.cpp creature.h JsonParser.h
+creature.o: creature.cpp creature.h JsonParser.h BadJsonException.h
 	$(CC) $(CFLAGS) -c creature.cpp
 
 JsonParser.o: JsonParser.cpp JsonParser.h BadJsonException.h
 	$(CC) $(CFLAGS) -c JsonParser.cpp
 
-main.o: main.cpp creature.h
+main.o: main.cpp creature.h JsonParser.h BadJsonException.h
 	$(CC) $(CFLAGS) -c main.cpp
 
 cppcheck_warnings:
