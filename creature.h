@@ -3,11 +3,11 @@
  *
  * \brief Creature class
  *
- * \author Almási Szabolcs
+ * \author Almási Szabolcs, Beszedics Tamás, Élő Kristóf
  *
- * \date 2020.10.07. 22:57
+ * \date 2020.10.27. 19:05
  *
- * Created on 2020.10.07. 22:57
+ * Created on 2020.10.27. 19:05
  */
 
 #ifndef CREATURE_H
