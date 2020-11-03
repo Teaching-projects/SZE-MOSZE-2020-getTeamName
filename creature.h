@@ -37,7 +37,7 @@ private:
      */
     void attack(Creature*) const; ///< A Creature tamadasa egy masik Creature objektum ellen
     void levelUp(); ///< Creature osztály szintlépését hajtja végre
-    void overkill(Creature*); ///< Azt vizsgálja, hogy a megadott Creature életereje kevesebb-e, mint a kiosztott sebzés.
+    void overkill(Creature*); ///< Annyi tapasztalati pontot kap a Creature, amennyi eleterot sebzett egy másik Creature-re
 
 public:
     Creature(std::string, double, double, double, double, int); ///< Creature osztaly konstruktora
@@ -48,7 +48,7 @@ public:
     std::string getName() const {return name;} ///< Egyszeru konstans Getter fuggveny, ami visszater a Creature nevenek ertekevel
     double getDamage() const {return damage;} ///< Egyszeru konstans Getter fuggveny, ami visszater a Creature sebzesenek ertekevel
     double getExperience() const {return experience;} ///< Egyszeru konstans Getter fuggveny, ami visszater a Creature tapasztalati pontjaival
-    double getLevel() const {return level;} ///< Egyszeru konstans Getter fuggveny, ami visszater a Creature szintjének értékével
+    int getLevel() const {return level;} ///< Egyszeru konstans Getter fuggveny, ami visszater a Creature szintjének értékével
     double getAttackcooldown() const {return attackcooldown;} ///< Egyszeru konstans Getter fuggveny, ami visszater a Creature 2 tamadasa kozti eltelt ido ertekevel
     /**
      * \brief Ket Creature objektum kozotti harc megvalositasa
@@ -64,7 +64,7 @@ public:
     /**
      * \brief JSON-ben kapott adatokat elemzi
      * \param String
-     * \return Creature-re mutato objektummal ter vissza
+     * \return Creature-re mutato objektummal ter vissza a fuggveny
      */
     static Creature* parseUnit(const std::string& /** [in] string*/);
 };

@@ -14,4 +14,4 @@ jobs:
       - name: make build environment
         run: cd google_test && make
       - name: run google_test
-        run: cd google_test && ./google_test_output
+        run: make unittest
