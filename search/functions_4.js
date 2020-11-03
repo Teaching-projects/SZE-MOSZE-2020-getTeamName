@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['operator_3d',['operator=',['../classCreature.html#abb69c172636f159bcd79d9e1566734a2',1,'Creature']]]
+  ['jsonparser',['JsonParser',['../classJsonParser.html#ac08da24e5dc74b56057e78e555ca1eab',1,'JsonParser::JsonParser(std::string fName)'],['../classJsonParser.html#ad369ee7d753437dec8b4ea010a418cb4',1,'JsonParser::JsonParser(std::istream &amp;stream)']]]
 ];

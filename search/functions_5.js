@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['parseunit',['parseUnit',['../classCreature.html#ab2805d0b66236f6173ab251e871a0361',1,'Creature']]]
+  ['operator_3d',['operator=',['../classCreature.html#abb69c172636f159bcd79d9e1566734a2',1,'Creature']]]
 ];
