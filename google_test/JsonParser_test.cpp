@@ -1,170 +1,143 @@
-#include "../JsonParser.h"
-#include "../creature.h"
+#include "../JSON.h"
+#include "../Hero.h"
+#include "../Monster.h"
 #include <iostream>
 #include <gtest/gtest.h>
 
 TEST(CreatureTests, FightEndTest)
 {
-    Creature* h1 = Creature::parseUnit("../Units/Kakarott.json");
-    Creature* h2 = Creature::parseUnit("../Units/Maple.json");
-    h1->fight(h2);
-    ASSERT_TRUE(h1->isDead() || h2->isDead());
+    Hero h1 = Hero::parse("../Dark_Wanderer.json");
+    Monster h2 = Monster::parse("../Zombie.json");
+    h1.fightTilDeath(h2);
+    ASSERT_TRUE(h1.isAlive() || h2.isAlive());
 }
 
 TEST(CreatureTests, FightResult)
 {
-    Creature* h1 = Creature::parseUnit("../Units/Maple.json");
-    Creature* h2 = Creature::parseUnit("../Units/Sally.json");
-    h1->fight(h2);
-    ASSERT_DOUBLE_EQ(h1->getLife(),-3);
-    ASSERT_DOUBLE_EQ(h2->getLife(),485);
+    Hero h1 = Hero::parse("../Dark_Wanderer.json");
+    Monster h2 = Monster::parse("../Blood_Raven.json");
+    h1.fightTilDeath(h2);
+    ASSERT_DOUBLE_EQ(h1.getHealthPoints(),0);
+    ASSERT_DOUBLE_EQ(h2.getHealthPoints(),101);
 }
 
 TEST(CreatureTests, FightSuccessful)
 {
-    Creature* h1 = Creature::parseUnit("../Units/Maple.json");
-    Creature* h2 = Creature::parseUnit("../Units/Sally.json");
-    EXPECT_NO_THROW(h1->fight(h2));
+    Hero h1 = Hero::parse("../Dark_Wanderer.json");
+    Monster h2 = Monster::parse("../Blood_Raven.json");
+    EXPECT_NO_THROW(h1.fightTilDeath(h2));
 }
 
 TEST(CreatureTests, LevelUpTest)
 {
-    Creature* h1 = Creature::parseUnit("../Units/Kakarott.json");
-    Creature* h2 = Creature::parseUnit("../Units/Maple.json");
-    h1->fight(h2);
-    ASSERT_DOUBLE_EQ(h1->getMax_Life(),550);
-    ASSERT_DOUBLE_EQ(h1->getDamage(),462);
-    ASSERT_DOUBLE_EQ(h1->getAttackcooldown(),1.8);
+    Hero h1 = Hero::parse("../Dark_Wanderer.json");
+    Monster h2 = Monster::parse("../Blood_Raven.json");
+    h1.fightTilDeath(h2);
+    ASSERT_DOUBLE_EQ(h1.getHealthPoints(),0);
+    ASSERT_DOUBLE_EQ(h1.getDamage(),3);
+    ASSERT_DOUBLE_EQ(h1.getAttackCoolDown(),1.100000);
 }
 
 
 TEST(CreatureTests, LevelTest)
 {
-    Creature* h1 = Creature::parseUnit("../Units/Sally.json");
-    Creature* h2 = Creature::parseUnit("../Units/Maple.json");
-    h1->fight(h2);
-    ASSERT_EQ(h1->getLevel(),2);
-    ASSERT_EQ(h2->getLevel(),1);
-    ASSERT_TRUE(h1->getLevel()>h2->getLevel());
+    Hero h1 = Hero::parse("../Dark_Wanderer.json");
+    Monster h2 = Monster::parse("../Zombie.json");
+    h1.fightTilDeath(h2);
+    ASSERT_EQ(h1.getLevel(),1);
 }
 
 TEST(CreatureTests, XPTest)
 {
-    Creature* h1 = Creature::parseUnit("../Units/Sally.json");
-    Creature* h2 = Creature::parseUnit("../Units/Maple.json");
-    h1->fight(h2);
-    ASSERT_DOUBLE_EQ(h1->getExperience(),50);
-    ASSERT_DOUBLE_EQ(h2->getExperience(),40);
+    Hero h1 = Hero::parse("../Dark_Wanderer.json");
+    Monster h2 = Monster::parse("../Blood_Raven.json");
+    h1.fightTilDeath(h2);
+    ASSERT_DOUBLE_EQ(h1.getExperience(),12);
 }
 
 TEST(CreatureTests, SelfAttackTest)
 {
-    Creature* h1 = Creature::parseUnit("../Units/Kakarott.json");
-    Creature* h2 = Creature::parseUnit("../Units/Kakarott.json");
-    EXPECT_NO_THROW(h1->fight(h2));
+    Hero h1 = Hero::parse("../Dark_Wanderer.json");
+    Hero h2 = Hero::parse("../Dark_Wanderer.json");
+    EXPECT_NO_THROW(h1.fightTilDeath(h2));
 }
 
-TEST(CreatureTests, ParseUnitTest)
+TEST(CreatureTests, parseTest)
 {
-    Creature* h1 = Creature::parseUnit("../Units/Kakarott.json");
-    ASSERT_TRUE(h1->getName() == "Kakarott");
-    ASSERT_DOUBLE_EQ(h1->getLife(),500);
-    ASSERT_DOUBLE_EQ(h1->getDamage(),420);
-    ASSERT_DOUBLE_EQ(h1->getAttackcooldown(),2);
+    Monster h1 = Monster::parse("../Units/Maple.json");
+    ASSERT_TRUE(h1.getName() == "Maple");
+    ASSERT_DOUBLE_EQ(h1.getHealthPoints(),150);
+    ASSERT_DOUBLE_EQ(h1.getDamage(),10);
+    ASSERT_DOUBLE_EQ(h1.getAttackCoolDown(),3);
 }
 
 TEST(CreatureTests, GoodParse)
 {
-    EXPECT_NO_THROW(Creature::parseUnit("../Units/Kakarott.json"));
-    EXPECT_NO_THROW(Creature::parseUnit("../Units/Maple.json"));
-    EXPECT_NO_THROW(Creature::parseUnit("../Units/Sally.json"));
-    EXPECT_THROW(JsonParser("../Units/Bad1.json"), BadJsonException);
+    EXPECT_NO_THROW(Monster::parse("../Zombie.json"));
+    EXPECT_NO_THROW(Monster::parse("../Fallen.json"));
+    EXPECT_NO_THROW(Monster::parse("../Blood_Raven.json"));
+    EXPECT_THROW(JSON::parseFromFile("../Units/Bad1.json"), JSON::ParseException);
 }
 
 TEST(CreatureTests, ShuffledJSONTest)
 {
-    Creature* h1 = Creature::parseUnit("../Units/shuffled.json");
-    ASSERT_TRUE(h1->getName() == "Sally");
-    ASSERT_DOUBLE_EQ(h1->getLife(),450);
-    ASSERT_DOUBLE_EQ(h1->getDamage(),30);
-    ASSERT_DOUBLE_EQ(h1->getAttackcooldown(),2.5);
+    Monster h1 = Monster::parse("../Units/shuffled.json");
+    ASSERT_TRUE(h1.getName() == "Sally");
+    ASSERT_DOUBLE_EQ(h1.getHealthPoints(),450);
+    ASSERT_DOUBLE_EQ(h1.getDamage(),30);
+    ASSERT_DOUBLE_EQ(h1.getAttackCoolDown(),2.5);
 }
 
 TEST(CreatureTests, GoodTypeTest)
 {
-    Creature h1("Kakarott", 420, 500, 2, 0, 1);
+    Monster h1("Fallen", 4, 2, 1.6);
     EXPECT_EQ(typeid(std::string),typeid(h1.getName()));
     EXPECT_EQ(typeid(double),typeid(h1.getDamage()));
-    EXPECT_EQ(typeid(double),typeid(h1.getLife()));
-    EXPECT_EQ(typeid(double),typeid(h1.getAttackcooldown()));
-    EXPECT_EQ(typeid(double),typeid(h1.getExperience()));
-    EXPECT_EQ(typeid(int),typeid(h1.getLevel()));
+    EXPECT_EQ(typeid(double),typeid(h1.getHealthPoints()));
+    EXPECT_EQ(typeid(double),typeid(h1.getAttackCoolDown()));
 }
 
 TEST(CreatureTests, BadJSONTest)
 {
-    EXPECT_NO_THROW(JsonParser("../Units/Bad2.json"));
+    EXPECT_NO_THROW(JSON::parseFromFile("../Units/Bad2.json"));
 }
 
-
 TEST(JsonParser, filename_parsing_ok) {
-    JsonParser jsonParser("../Units/Kakarott.json");
+    JSON j = JSON::parseFromFile("../Units/Maple.json");
 
-	const std::map<std::string, std::string> valid = jsonParser.getData();
-	std::map<std::string, std::string> expected
-	{
-		{"name", "Kakarott"},
-		{"hp", "500"},
-		{"dmg", "420"},
-		{"attackcooldown", "2"}
-	};
-
-	for (auto&& iter : valid) {
-		ASSERT_EQ(expected[iter.first], iter.second);
-	}
+    ASSERT_EQ("Maple",j.get<std::string>("name"));
+    ASSERT_EQ(150,j.get<double>("health_points"));
+    ASSERT_EQ(10,j.get<double>("damage"));
+    ASSERT_EQ(3,j.get<double>("attack_cooldown"));
 }
 
 TEST(JsonParser, bad_input_file) {
-	ASSERT_THROW(JsonParser("../Units/Bad1.json"), BadJsonException);
+	ASSERT_THROW(JSON::parseFromFile("../Units/Bad1.json"), JSON::ParseException);
 }
 
 TEST(JsonParser, ifstream_ok) {
-	std::ifstream file("../Units/Kakarott.json");
-	JsonParser jsonParser(file);
+	std::ifstream file("../Units/Maple.json");
+	JSON j = JSON::parseFromStream(file);
 
-	const std::map<std::string, std::string> valid = jsonParser.getData();
-	std::map<std::string, std::string> expected
-	{
-		{"name", "Kakarott"},
-		{"hp", "500"},
-		{"dmg", "420"},
-		{"attackcooldown", "2"}
-	};
-
-	for (auto&& iter : valid) {
-		ASSERT_EQ(expected[iter.first], iter.second);
-	}
+    ASSERT_EQ("Maple",j.get<std::string>("name"));
+    ASSERT_EQ(150,j.get<double>("health_points"));
+    ASSERT_EQ(10,j.get<double>("damage"));
+    ASSERT_EQ(3,j.get<double>("attack_cooldown"));
 }
 
 TEST(JsonParser, string_input_ok) {
-	std::ifstream file("../Units/Kakarott.json");
+	std::ifstream file("../Units/Maple.json");
 	std::string temp = "", input = "";
 	while (std::getline(file, temp)) {
-		input += temp + "\n";
+		input += temp;
 	}
-	JsonParser jsonParser(input);
-	const std::map<std::string, std::string> valid = jsonParser.getData();
-	std::map<std::string, std::string> expected
-	{
-		{"name", "Kakarott"},
-		{"hp", "500"},
-		{"dmg", "420"},
-		{"attackcooldown", "2"}
-	};
+	JSON j = JSON::parseFromString(input);
 
-	for (auto&& iter : valid) {
-		ASSERT_EQ(expected[iter.first], iter.second);
-	}
+    ASSERT_EQ("Maple",j.get<std::string>("name"));
+    ASSERT_EQ(150,j.get<double>("health_points"));
+    ASSERT_EQ(10,j.get<double>("damage"));
+    ASSERT_EQ(3,j.get<double>("attack_cooldown"));
+	
 } 
 
 int main(int argc, char **argv) {

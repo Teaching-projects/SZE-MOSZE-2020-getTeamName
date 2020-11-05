@@ -1,6 +1,2 @@
-./a.out "Units/Sally.json" "Units/Maple.json"
-./a.out "Units/Sally.json" "Units/Kakarott.json"
-./a.out "Units/Maple.json" "Units/Kakarott.json"
-./a.out "Units/Maple.json" "Units/Sally.json"
-./a.out "Units/Kakarott.json" "Units/Sally.json"
-./a.out "Units/Kakarott.json" "Units/Maple.json"
+./a.out "scenario1.json"
+./a.out "scenario2.json"

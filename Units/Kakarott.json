@@ -1,6 +1,10 @@
 {
   "name" : "Kakarott",
-  "hp" : 500,
-  "dmg" : 420,
-  "attackcooldown" : 2
+  "health_points" : 500,
+  "damage" : 420,
+  "attack_cooldown" : 2,
+  "experience_per_level" : 20,
+  "health_point_bonus_per_level" : 5,
+  "damage_bonus_per_level" : 1,
+  "cooldown_multiplier_per_level": 0.9
 }
