@@ -1,14 +1,11 @@
 var searchData=
 [
-  ['getattackcooldown',['getAttackcooldown',['../classCreature.html#a5defebe8efae14bd8edb28606e23270b',1,'Creature']]],
-  ['getdamage',['getDamage',['../classCreature.html#a364c7ade28d2671cdb3af791a9999f28',1,'Creature']]],
-  ['getdata',['getData',['../classJsonParser.html#ac43aeaf26c9b7c362d69f83f7790f150',1,'JsonParser']]],
-  ['getdouble',['getDouble',['../classJsonParser.html#aa8dd07cd9e5637adf78fb6570e9d633d',1,'JsonParser']]],
-  ['geterrorcode',['getErrorCode',['../classBadJsonException.html#ab6160f1f7b03f46a00a5055e68167dd9',1,'BadJsonException']]],
-  ['getexperience',['getExperience',['../classCreature.html#a86d16798b33ad3aa208b8dae0890bf01',1,'Creature']]],
-  ['getlevel',['getLevel',['../classCreature.html#a8dcc9a6b82cda5cf082b8fb3bdbcc4c5',1,'Creature']]],
-  ['getlife',['getLife',['../classCreature.html#a3e3d758e5f8d4db101db8c127ca975f0',1,'Creature']]],
-  ['getmax_5flife',['getMax_Life',['../classCreature.html#a4c9c3443cb6f9d184e525407dffe2f0a',1,'Creature']]],
-  ['getname',['getName',['../classCreature.html#ad6b8c8cb5e1b73de8e57f88acb34380e',1,'Creature']]],
-  ['getstring',['getString',['../classJsonParser.html#a28a6edd97214d4c4e8b44332a817420b',1,'JsonParser']]]
+  ['get',['get',['../classJSON.html#aebfe4eae3134bdc249f9695c6406bdba',1,'JSON']]],
+  ['getattackcooldown',['getAttackCoolDown',['../classMonster.html#ad84dbe06c7a2aa7f75164dd9db52daf3',1,'Monster']]],
+  ['getdamage',['getDamage',['../classMonster.html#ac938c00cd62d44abda61b6641298becb',1,'Monster']]],
+  ['getexperience',['getExperience',['../classHero.html#aa425fbf01633d073ec03a57aaa9c64eb',1,'Hero']]],
+  ['gethealthpoints',['getHealthPoints',['../classMonster.html#a09d2e3166a843a4c7f48424ca24befe9',1,'Monster']]],
+  ['getlevel',['getLevel',['../classHero.html#a6dd9b95f7d5612aed15594fa531f7577',1,'Hero']]],
+  ['getmaxhealthpoints',['getMaxHealthPoints',['../classHero.html#acadcea371026df22889efa32e8162f00',1,'Hero']]],
+  ['getname',['getName',['../classMonster.html#a28ae1112e37262ce150e3c02465b3dd5',1,'Monster']]]
 ];

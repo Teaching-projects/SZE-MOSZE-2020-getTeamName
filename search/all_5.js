@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['jsonparser',['JsonParser',['../classJsonParser.html',1,'JsonParser'],['../classJsonParser.html#ac08da24e5dc74b56057e78e555ca1eab',1,'JsonParser::JsonParser(std::string fName)'],['../classJsonParser.html#ad369ee7d753437dec8b4ea010a418cb4',1,'JsonParser::JsonParser(std::istream &amp;stream)']]]
+  ['isalive',['isAlive',['../classMonster.html#a77ad18c44b3fb2df92b30ece4dc7847b',1,'Monster']]]
 ];

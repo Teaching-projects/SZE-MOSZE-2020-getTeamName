@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['operator_3d',['operator=',['../classCreature.html#abb69c172636f159bcd79d9e1566734a2',1,'Creature']]]
+  ['json',['JSON',['../classJSON.html#aaa36eebdce37b5be2aa7e2c4d59f1657',1,'JSON']]]
 ];

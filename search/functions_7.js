@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['what',['what',['../classBadJsonException.html#a8ccc3d0f31bd8db720230c16517abf17',1,'BadJsonException']]]
+  ['monster',['Monster',['../classMonster.html#a2e2d2b723db77bd2913990f64261db8b',1,'Monster']]]
 ];
