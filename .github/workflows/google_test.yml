@@ -8,7 +8,7 @@ jobs:
     container: beszedics/google-test
     steps:
       - name: Install google test dependecies
-        run: cd /usr/src/gtest && cmake . && make && cp *.a /usr/lib && ln -s /usr/lib/libgtest.a /usr/local/lib/libgtest.a && ln -s /usr/lib/libgtest_main.a /usr/local/lib/libgtest_main.a
+        run: cd /usr/src/gtest && cmake CMakeLists.txt && make && cp *.a /usr/lib && ln -s /usr/lib/libgtest.a /usr/local/lib/libgtest.a && ln -s /usr/lib/libgtest_main.a /usr/local/lib/libgtest_main.a
       - uses: actions/checkout@v2
       - name: cmake
         run: cd google_test && cmake .
