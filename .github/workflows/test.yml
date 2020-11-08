@@ -6,10 +6,9 @@ on:
 jobs:
   build_and_test:
     runs-on: ubuntu-latest
+    container: beszedics/test
     steps:
       - uses: actions/checkout@v2
-      - run: sudo apt-get install cppcheck
-      - run: sudo apt-get install valgrind
       - run: cppcheck *.cpp --enable=all --output-file=artifact_cppcheck.txt
       - name: Upload cppcheck as artifact
         uses: actions/upload-artifact@v2
@@ -18,7 +17,5 @@ jobs:
           path: ./artifact_cppcheck.txt
       - run: g++-10 -std=c++17 *.cpp -Wall -Wextra -g -lstdc++fs
       - uses: actions/setup-python@v2
-        with:
-          python-version: '3.x'
       - run: python run_cppcheck_test.py
       - run: python run_test.py
