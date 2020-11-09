@@ -1,6 +1,6 @@
 OBJS := Hero.o JSON.o Monster.o main.o
 CFLAGS := -std=c++17 -Wall -Wextra -g -lstdc++fs
-CC:= g++-10
+CC:= g++-9
 CPPCH := cppcheck
 CPPFLAGS := --enable=warning --error-exitcode=2
 CPPFSECFLAGS := --enable=performance,style --output-file=artifact_cppcheck.txt
