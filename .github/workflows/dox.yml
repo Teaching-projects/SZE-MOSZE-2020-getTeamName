@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     container: beszedics/doxygen
     steps:
-      - uses: actions/checkout@main
+      - uses: actions/checkout@v2
       - run: make generate_documentation
       - name: Push git subdirectory as branch
         uses: s0/git-publish-subdir-action@v2.4.0
