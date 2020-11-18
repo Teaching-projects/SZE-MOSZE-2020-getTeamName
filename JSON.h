@@ -22,9 +22,9 @@
 
 class JSON {
     private:
-		std::map<std::string, std::variant<std::string, double, int>> data;///<  Kulcs-érték string páros,
-        static std::map<std::string, std::variant<std::string, double, int>> parseJson(std::list<std::string>&); ///<  A Json parzolását ez a függvény hajtja végre
-        static bool validateJson(std::list<std::string>); ///<  A Json fájl formátumát vizsgálja, hogy megfelelő-e
+		std::map<std::string, std::variant<std::string, double, int, std::list<std::variant<std::string, double, int>>>> data;///<  Kulcs-érték string páros,
+        static std::map<std::string, std::variant<std::string, double, int, std::list<std::variant<std::string, double, int>>>> parseJson(std::list<std::variant<std::string, double, int>>,std::list<std::string>); ///<  A Json parzolását ez a függvény hajtja végre
+        static bool validateJson(std::string); ///<  A Json fájl formátumát vizsgálja, hogy megfelelő-e
 
     public:
 		static JSON parseFromFile(std::string); ///< stringben tárolt JSON fájlt olvas be
@@ -32,12 +32,14 @@ class JSON {
 		static JSON parseFromStream(std::istream&); ///< istreamben lévő JSON struktúrát olvas be
 		int count(std::string); ///< Visszaadja a mapben található kulcsok darabszámát
 
-		JSON(std::map<std::string, std::variant<std::string, double, int>>); ///< JSON osztály konstruktora
+		JSON(std::map<std::string, std::variant<std::string, double, int, std::list<std::variant<std::string, double, int>>>>); ///< JSON osztály konstruktora
 
 		template<typename T> ///< Kap egy típust, majd kulcsot stringként és visszaadja a típusra konvertált értéket a mapből
 		T get(const std::string& key) {
 			return std::get<T>(data[key]);
 		};
+
+		typedef std::list<std::variant<std::string, double, int>> list;
 
 		class ParseException : std::exception {
 		public:
