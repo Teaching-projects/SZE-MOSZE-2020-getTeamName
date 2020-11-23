@@ -34,7 +34,7 @@ public:
 
     class WrongIndexException : public std::runtime_error{
     public:
-        WrongIndexException(const std::string& error_message) : std::runtime_error(error_message){}
+        WrongIndexException(const std::string& err_message) : std::runtime_error(err_message){}
     };
 };
 
