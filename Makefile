@@ -1,4 +1,4 @@
-OBJS := Hero.o JSON.o Monster.o main.o
+OBJS := Hero.o JSON.o Monster.o main.o map.o
 CFLAGS := -std=c++17 -Wall -Wextra -g -lstdc++fs
 CC:= g++-9
 CPPCH := cppcheck
@@ -7,7 +7,7 @@ CPPFSECFLAGS := --enable=performance,style --output-file=artifact_cppcheck.txt
 VLGRND:= valgrind
 VLGRNDFLAGS:= --leak-check=full --error-exitcode=3
 VLGRNDJSONS:=  ./rpg scenario1.json
-RUNCPP := Hero.cpp JSON.cpp Monster.cpp main.cpp
+RUNCPP := Hero.cpp JSON.cpp Monster.cpp main.cpp map.cpp
 
 tests: rpg cppcheck_warnings cppcheck_style_and_performance valgrind_memory_leak_check correct_output_check
 
@@ -16,6 +16,9 @@ rpg: $(OBJS)
 
 Hero.o: Hero.cpp Hero.h JSON.h Monster.h
 	$(CC) $(CFLAGS) -c Hero.cpp
+
+map.o: map.cpp map.h
+	$(CC) $(CFLAGS) -c map.cpp
 
 JSON.o: JSON.cpp JSON.h 
 	$(CC) $(CFLAGS) -c JSON.cpp
