@@ -90,7 +90,7 @@ TEST(CreatureTests, ShuffledJSONTest)
 
 TEST(CreatureTests, GoodTypeTest)
 {
-    Monster h1("Fallen", 4, 2, 1.6);
+    Monster h1("Fallen", 4, 2, 1.6, 0.1);
     EXPECT_EQ(typeid(std::string),typeid(h1.getName()));
     EXPECT_EQ(typeid(double),typeid(h1.getDamage()));
     EXPECT_EQ(typeid(double),typeid(h1.getHealthPoints()));
