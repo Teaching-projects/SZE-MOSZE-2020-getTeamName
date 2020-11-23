@@ -50,10 +50,11 @@ int main(int argc, char** argv){
         for (const auto& monster_file : monster_files) 
             monsters.push_back(Monster::parse(monster_file));
 std::cout << hero.getName() << ": LVL" << hero.getLevel() << std::endl
-                  << "   HP: "<<hero.getHealthPoints()<<"/"<<hero.getMaxHealthPoints()<<std::endl
-                  << "  DMG: "<<hero.getDamage()<<std::endl
-                  << "  ACD: "<<hero.getAttackCoolDown()<<std::endl
-                  ;
+                    << "   HP: "<<hero.getHealthPoints()<<"/"<<hero.getMaxHealthPoints()<<std::endl
+                    << "  DMG: "<<hero.getDamage()<<std::endl
+                    << "  ACD: "<<hero.getAttackCoolDown()<<std::endl
+                    << "  DEF: "<<hero.getDefense()<<std::endl
+                    ;
         while (hero.isAlive() && !monsters.empty()) {
             std::cout
                 << hero.getName() << "(" << hero.getLevel()<<")"
@@ -65,10 +66,11 @@ std::cout << hero.getName() << ": LVL" << hero.getLevel() << std::endl
         }
         std::cout << (hero.isAlive() ? "The hero won." : "The hero died.") << std::endl;
         std::cout << hero.getName() << ": LVL" << hero.getLevel() << std::endl
-                  << "   HP: "<<hero.getHealthPoints()<<"/"<<hero.getMaxHealthPoints()<<std::endl
-                  << "  DMG: "<<hero.getDamage()<<std::endl
-                  << "  ACD: "<<hero.getAttackCoolDown()<<std::endl
-                  ;
+                << "   HP: "<<hero.getHealthPoints()<<"/"<<hero.getMaxHealthPoints()<<std::endl
+                << "  DMG: "<<hero.getDamage()<<std::endl
+                << "  ACD: "<<hero.getAttackCoolDown()<<std::endl
+                << "  DEF: "<<hero.getDefense()<<std::endl
+                ;
     } catch (const JSON::ParseException& e) {bad_exit(4);}
     return 0;
 }

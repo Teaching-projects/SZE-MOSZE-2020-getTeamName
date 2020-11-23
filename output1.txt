@@ -2,6 +2,7 @@ Prince Aidan of Khanduras: LVL1
 HP: 30/30
 DMG: 3
 ACD: 1.1
+DEF: 1
 Prince Aidan of Khanduras(1) vs Fallen
 Prince Aidan of Khanduras(1) vs Fallen
 Prince Aidan of Khanduras(1) vs Zombie
@@ -9,9 +10,10 @@ Prince Aidan of Khanduras(1) vs Fallen
 Prince Aidan of Khanduras(2) vs Fallen
 Prince Aidan of Khanduras(2) vs Zombie
 Prince Aidan of Khanduras(2) vs Fallen
-Prince Aidan of Khanduras(3) vs Blood Raven
+Prince Aidan of Khanduras(2) vs Blood Raven
 The hero won.
 Prince Aidan of Khanduras: LVL8
-HP: 57/65
+HP: 65/65
 DMG: 10
 ACD: 0.526127
+DEF: 1.7

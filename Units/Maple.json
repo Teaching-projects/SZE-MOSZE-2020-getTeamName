@@ -2,5 +2,6 @@
   "name" : "Maple",
   "health_points" : 150,
   "damage" : 10,
-  "attack_cooldown" : 3
+  "attack_cooldown" : 3,
+  "defense" : 2
 }
