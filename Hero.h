@@ -14,19 +14,17 @@ private:
     const double HP_Bonus; ///< A Hero szintlépésekor kapott bónusz HP
     const double Damage_Bonus; ///< A Hero szintlépésekor kapott bónusz sebzés
     const double Cooldown_Bonus; ///< A Hero szintlépésekor kapott cooldown szorzó
-
+    const double defense_bonus_per_level; ///< A Hero szintenkenti bonusz vedekezesi erteke
 
 public:
-    Hero(std::string, double, double, double, double, double, double, double); ///< A Hero konstruktora
+    Hero(std::string, double, double, double, double, double, double, double, double, double); ///< A Hero konstruktora
 	Hero(const Hero* other); ///< A Hero copy konstruktora
     double getExperience() const {return experience;} ///< Egyszeru konstans Getter fuggveny, ami visszater a Hero tapasztalati pontjaival
     double getLevel() const {return level;} ///< Egyszeru konstans Getter fuggveny, ami visszater a Hero szintjének értékével
     double getMaxHealthPoints() const {return max_life;} ///< Egyszeru konstans Getter fuggveny, ami visszater a Hero maximalis eleterejenek ertekevel
     static Hero parse(const std::string& /** [in] string*/);
-
     void levelUp(); ///< Hero osztály szintlépését hajtja végre
     double attack(Monster&); ///< Támadást vezérlő függvény
-
 };
 
 #endif // HERO_H

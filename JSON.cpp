@@ -107,6 +107,12 @@ std::map<std::string, std::variant<std::string, double, int, std::list<std::vari
             else if (key.find("attack_cooldown") != std::string::npos) {
                 data.insert(std::make_pair("attack_cooldown", std::stod(value)));
             }
+			else if (key.find("defense") != std::string::npos) {
+                data.insert(std::make_pair("defense", std::stod(value)));
+            }
+			else if ((key.find("defense") != std::string::npos) && (key.find("bonus") != std::string::npos)) {
+                data.insert(std::make_pair(key, std::stod(value)));
+            }
     
             else if ((key.find("damage") != std::string::npos) && (key.find("bonus") != std::string::npos)) {
                 data.insert(std::make_pair(key, std::stod(value)));

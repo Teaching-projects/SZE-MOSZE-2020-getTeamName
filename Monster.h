@@ -26,16 +26,16 @@ protected:
     double life; ///< Elete a Monster-nek
     double damage; ///< Sebzese a Monster-nek
     double attackcooldown; ///<Ketto sebzes kozotti eltelt ido az adott Monster-n belul
+    double defense; ///< A Monster vedekezesi erejenek erteke
     virtual double attack(Monster &); ///< A Monster tamadasa egy masik Monster objektum ellen
 
 public:
-    Monster(std::string, double, double, double); ///< Monster konstruktora
+    Monster(std::string, double, double, double, double); ///< Monster konstruktora
     double getHealthPoints() const {return life;} ///< Egyszeru konstans Getter fuggveny, ami visszater a Monster eletenek ertekevel
     std::string getName() const {return name;} ///< Egyszeru konstans Getter fuggveny, ami visszater a Monster nevenek ertekevel
     double getDamage() const {return damage;} ///< Egyszeru konstans Getter fuggveny, ami visszater a Monster sebzesenek ertekevel
     double getAttackCoolDown() const {return attackcooldown;} ///< Egyszeru konstans Getter fuggveny, ami visszater a Monster 2 tamadasa kozti eltelt ido ertekevel
-
-//KOMMENT
+    double getDefense() const {return defense;} ///< Egyszeru konstans Getter fuggveny, ami visszater a defense ertekevel
     void fightTilDeath(Monster& );
     /**
      * \brief Visszaadja, hogy az adott Monster el-e meg
@@ -47,7 +47,6 @@ public:
      * \return Monster-re mutato objektummal ter vissza
      */
     static Monster parse(const std::string& /** [in] string*/);
-
 };
 
 #endif // MONSTER_H
