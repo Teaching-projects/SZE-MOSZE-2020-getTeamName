@@ -1,6 +1,7 @@
 #include "../JSON.h"
 #include "../Hero.h"
 #include "../Monster.h"
+#include "../damage.h"
 #include <iostream>
 #include <gtest/gtest.h>
 
@@ -34,7 +35,7 @@ TEST(CreatureTests, LevelUpTest)
     Monster h2 = Monster::parse("../Blood_Raven.json");
     h1.fightTilDeath(h2);
     ASSERT_DOUBLE_EQ(h1.getHealthPoints(),0);
-    ASSERT_DOUBLE_EQ(h1.getDamage(),3);
+    ASSERT_DOUBLE_EQ(h1.getDamage().physical,3);
     ASSERT_DOUBLE_EQ(h1.getAttackCoolDown(),1.100000);
 }
 
@@ -67,7 +68,7 @@ TEST(CreatureTests, parseTest)
     Monster h1 = Monster::parse("../Units/Maple.json");
     ASSERT_TRUE(h1.getName() == "Maple");
     ASSERT_DOUBLE_EQ(h1.getHealthPoints(),150);
-    ASSERT_DOUBLE_EQ(h1.getDamage(),10);
+    ASSERT_DOUBLE_EQ(h1.getDamage().physical,10);
     ASSERT_DOUBLE_EQ(h1.getAttackCoolDown(),3);
     ASSERT_DOUBLE_EQ(h1.getDefense(), 2);
 }
@@ -85,7 +86,7 @@ TEST(CreatureTests, ShuffledJSONTest)
     Monster h1 = Monster::parse("../Units/shuffled.json");
     ASSERT_TRUE(h1.getName() == "Sally");
     ASSERT_DOUBLE_EQ(h1.getHealthPoints(),450);
-    ASSERT_DOUBLE_EQ(h1.getDamage(),30);
+    ASSERT_DOUBLE_EQ(h1.getDamage().physical,30);
     ASSERT_DOUBLE_EQ(h1.getAttackCoolDown(),2.5);
     ASSERT_DOUBLE_EQ(h1.getDefense(), 3);
 }
@@ -94,7 +95,7 @@ TEST(CreatureTests, GoodTypeTest)
 {
     Monster h1("Fallen", 4, 2, 1.6, 0.1);
     EXPECT_EQ(typeid(std::string),typeid(h1.getName()));
-    EXPECT_EQ(typeid(double),typeid(h1.getDamage()));
+    EXPECT_EQ(typeid(int),typeid(h1.getDamage().physical));
     EXPECT_EQ(typeid(double),typeid(h1.getHealthPoints()));
     EXPECT_EQ(typeid(double),typeid(h1.getAttackCoolDown()));
 }
@@ -109,7 +110,6 @@ TEST(JsonParser, filename_parsing_ok) {
 
     ASSERT_EQ("Maple",j.get<std::string>("name"));
     ASSERT_EQ(150,j.get<double>("health_points"));
-    ASSERT_EQ(10,j.get<double>("damage"));
     ASSERT_EQ(3,j.get<double>("attack_cooldown"));
 }
 
@@ -123,7 +123,6 @@ TEST(JsonParser, ifstream_ok) {
 
     ASSERT_EQ("Maple",j.get<std::string>("name"));
     ASSERT_EQ(150,j.get<double>("health_points"));
-    ASSERT_EQ(10,j.get<double>("damage"));
     ASSERT_EQ(3,j.get<double>("attack_cooldown"));
 }
 
@@ -137,7 +136,6 @@ TEST(JsonParser, string_input_ok) {
 
     ASSERT_EQ("Maple",j.get<std::string>("name"));
     ASSERT_EQ(150,j.get<double>("health_points"));
-    ASSERT_EQ(10,j.get<double>("damage"));
     ASSERT_EQ(3,j.get<double>("attack_cooldown"));
 	
 } 
