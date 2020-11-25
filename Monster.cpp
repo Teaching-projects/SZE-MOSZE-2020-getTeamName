@@ -18,6 +18,7 @@ void Monster::fightTilDeath(Monster& uj){
             ujCooldownTime += uj.getAttackCoolDown(); 
         }
     }
+    std::cout <<"hp: " << uj.getHealthPoints() << "\n";
 }
 
 double Monster::attack(Monster& uj){   

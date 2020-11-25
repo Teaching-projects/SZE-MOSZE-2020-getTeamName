@@ -19,7 +19,7 @@ TEST(CreatureTests, FightResult)
     Monster h2 = Monster::parse("../Blood_Raven.json");
     h1.fightTilDeath(h2);
     ASSERT_DOUBLE_EQ(h1.getHealthPoints(),0);
-    ASSERT_DOUBLE_EQ(h2.getHealthPoints(),100.19999999999999);
+    ASSERT_DOUBLE_EQ(h2.getHealthPoints(),92.2);
 }
 
 TEST(CreatureTests, FightSuccessful)
@@ -53,7 +53,7 @@ TEST(CreatureTests, XPTest)
     Hero h1 = Hero::parse("../Dark_Wanderer.json");
     Monster h2 = Monster::parse("../Blood_Raven.json");
     h1.fightTilDeath(h2);
-    ASSERT_DOUBLE_EQ(h1.getExperience(),11.199999999999999);
+    ASSERT_DOUBLE_EQ(h1.getExperience(),19.2);
 }
 
 TEST(CreatureTests, SelfAttackTest)
@@ -68,7 +68,7 @@ TEST(CreatureTests, parseTest)
     Monster h1 = Monster::parse("../Units/Maple.json");
     ASSERT_TRUE(h1.getName() == "Maple");
     ASSERT_DOUBLE_EQ(h1.getHealthPoints(),150);
-    ASSERT_DOUBLE_EQ(h1.getDamage().physical,10);
+    ASSERT_DOUBLE_EQ(h1.getDamage().physical,0);
     ASSERT_DOUBLE_EQ(h1.getAttackCoolDown(),3);
     ASSERT_DOUBLE_EQ(h1.getDefense(), 2);
 }
@@ -86,7 +86,7 @@ TEST(CreatureTests, ShuffledJSONTest)
     Monster h1 = Monster::parse("../Units/shuffled.json");
     ASSERT_TRUE(h1.getName() == "Sally");
     ASSERT_DOUBLE_EQ(h1.getHealthPoints(),450);
-    ASSERT_DOUBLE_EQ(h1.getDamage().physical,30);
+    ASSERT_DOUBLE_EQ(h1.getDamage().physical,0);
     ASSERT_DOUBLE_EQ(h1.getAttackCoolDown(),2.5);
     ASSERT_DOUBLE_EQ(h1.getDefense(), 3);
 }
