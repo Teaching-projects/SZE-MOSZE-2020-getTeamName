@@ -14,19 +14,19 @@ tests: rpg cppcheck_warnings cppcheck_style_and_performance valgrind_memory_leak
 rpg: $(OBJS)
 	$(CC) $(CFLAGS) -o rpg $(OBJS)
 
-Hero.o: Hero.cpp Hero.h JSON.h Monster.h
+Hero.o: Hero.cpp Hero.h JSON.h Monster.h damage.h
 	$(CC) $(CFLAGS) -c Hero.cpp
 
 map.o: map.cpp map.h
 	$(CC) $(CFLAGS) -c map.cpp
 
-JSON.o: JSON.cpp JSON.h 
+JSON.o: JSON.cpp JSON.h damage.h
 	$(CC) $(CFLAGS) -c JSON.cpp
 
-Monster.o: Monster.cpp Monster.h JSON.h
+Monster.o: Monster.cpp Monster.h JSON.h damage.h
 	$(CC) $(CFLAGS) -c Monster.cpp
 
-main.o: main.cpp JSON.h Hero.h Monster.h
+main.o: main.cpp JSON.h Hero.h Monster.h damage.h
 	$(CC) $(CFLAGS) -c main.cpp
 
 cppcheck_warnings:
