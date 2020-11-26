@@ -113,15 +113,20 @@ std::map<std::string, std::variant<std::string, double, int, std::list<std::vari
 			else if ((key.find("defense") != std::string::npos) && (key.find("bonus") != std::string::npos)) {
                 data.insert(std::make_pair(key, std::stod(value)));
             }
-    
-            else if ((key.find("damage") != std::string::npos) && (key.find("bonus") != std::string::npos)) {
+            else if ((key.find("physical_damage") != std::string::npos) && (key.find("bonus") != std::string::npos)) {
                 data.insert(std::make_pair(key, std::stod(value)));
             }
             else if ((key.find("health") != std::string::npos) && (key.find("bonus") != std::string::npos)) {
                 data.insert(std::make_pair(key, std::stod(value)));
-            } 
-            else if (key.find("damage") != std::string::npos) {
-                data.insert(std::make_pair("damage", std::stod(value)));
+            }
+			else if ((key.find("magical_damage") != std::string::npos) && (key.find("bonus") != std::string::npos)) {
+                data.insert(std::make_pair(key, std::stod(value)));
+            }  
+            else if (key.find("physical_damage") != std::string::npos) {
+                data.insert(std::make_pair("physical_damage", std::stod(value)));
+            }
+			else if (key.find("magical_damage") != std::string::npos) {
+                data.insert(std::make_pair("magical_damage", std::stod(value)));
             }
             else if (key.find("health") != std::string::npos) {
                 data.insert(std::make_pair("health_points", std::stod(value)));

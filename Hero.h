@@ -15,9 +15,10 @@ private:
     const double Damage_Bonus; ///< A Hero szintlépésekor kapott bónusz sebzés
     const double Cooldown_Bonus; ///< A Hero szintlépésekor kapott cooldown szorzó
     const double defense_bonus_per_level; ///< A Hero szintenkenti bonusz vedekezesi erteke
+    const int magical_damage_bonus_per_level; ///< A Hero szintenkenti bonusz magical támadó erteke
 
 public:
-    Hero(std::string, double, double, double, double, double, double, double, double, double); ///< A Hero konstruktora
+    Hero(std::string, Damage, double, double, double, double, double, double, double, double, double); ///< A Hero konstruktora
 	Hero(const Hero* other); ///< A Hero copy konstruktora
     double getExperience() const {return experience;} ///< Egyszeru konstans Getter fuggveny, ami visszater a Hero tapasztalati pontjaival
     double getLevel() const {return level;} ///< Egyszeru konstans Getter fuggveny, ami visszater a Hero szintjének értékével

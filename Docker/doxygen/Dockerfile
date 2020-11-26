@@ -4,5 +4,5 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
 make \
 doxygen \
 graphviz \
-git=v2.28.0-rc2 \
+git=v2.16.3 \
 && rm -rf /var/lib/apt/lists/*
