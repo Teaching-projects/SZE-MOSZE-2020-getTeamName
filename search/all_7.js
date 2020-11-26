@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['levelup',['levelUp',['../classHero.html#aef06e69ebb7d2d18c640af5e6746dff6',1,'Hero']]],
-  ['life',['life',['../classMonster.html#a1d9bbc74f35e1513e1172485386f0fc0',1,'Monster']]]
+  ['json_10',['JSON',['../classJSON.html',1,'JSON'],['../classJSON.html#a4b2370f0b9601b13bced2f26f6860581',1,'JSON::JSON()']]]
 ];

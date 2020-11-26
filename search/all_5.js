@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['isalive',['isAlive',['../classMonster.html#a77ad18c44b3fb2df92b30ece4dc7847b',1,'Monster']]]
+  ['hero_8',['Hero',['../classHero.html',1,'Hero'],['../classHero.html#a156ac5a9974c75eac73280151f8e36f7',1,'Hero::Hero(std::string, Damage, double, double, double, double, double, double, double, double, double)'],['../classHero.html#a0d05753d640d4636ce3035a8882b2355',1,'Hero::Hero(const Hero *other)']]]
 ];

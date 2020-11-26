@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['parseexception',['ParseException',['../classJSON_1_1ParseException.html',1,'JSON']]]
+  ['map_34',['Map',['../classMap.html',1,'']]],
+  ['monster_35',['Monster',['../classMonster.html',1,'']]]
 ];

@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['parse',['parse',['../classHero.html#aac4d67bad651fbeb489905675545bb88',1,'Hero::parse()'],['../classMonster.html#a0b04445ff85b508acd45fa24732e4096',1,'Monster::parse()']]],
-  ['parsefromfile',['parseFromFile',['../classJSON.html#a88b145f10f9784da452b895bc327f358',1,'JSON']]],
-  ['parsefromstream',['parseFromStream',['../classJSON.html#afa214c412503dc05d8d185d7ffbda4a0',1,'JSON']]],
-  ['parsefromstring',['parseFromString',['../classJSON.html#aa1dfc3b8b29100c93fa56b8334e9e173',1,'JSON']]]
+  ['operator_2a_3d_47',['operator*=',['../structDamage.html#a685537eb1dd8f8d2e1f95930b765d1e1',1,'Damage']]],
+  ['operator_2b_48',['operator+',['../structDamage.html#a95971b6e07342a63cd6a2c040dbcc3ec',1,'Damage']]],
+  ['operator_2b_3d_49',['operator+=',['../structDamage.html#a0699450c288fa64c4b7d8191754671ba',1,'Damage']]]
 ];
