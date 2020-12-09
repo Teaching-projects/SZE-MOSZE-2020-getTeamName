@@ -1,4 +1,5 @@
 import os, sys
+import subprocess
 
 def main():
     excepted_outputs1 = []
@@ -27,11 +28,13 @@ def main():
     file.close
 
     # futási eredmények elmentése
-    for line in os.popen(commands[0]).read().strip().split('\n'):
-        outputs1.append(line.strip())
+    p = subprocess.Popen([commands[0]], shell=True, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
+    for i in range(17):
+        outputs1.append(p.stdout.readline().decode().strip())
 
-    for line in os.popen(commands[1]).read().strip().split('\n'):
-        outputs2.append(line.strip())
+    p = subprocess.Popen([commands[1]], shell=True, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
+    for i in range(17):
+        outputs2.append(p.stdout.readline().decode().strip())
 
     # futási eredmények és várt eredmények vizsgálata
     for i in range(len(outputs1)):
@@ -48,7 +51,7 @@ def main():
         if (os.system("echo $?") == 5):
             print("Memory leak...\n")
             sys.exit(5)
-    
+
     if len(error) == 0: 
         sys.exit(0)
     else: 
