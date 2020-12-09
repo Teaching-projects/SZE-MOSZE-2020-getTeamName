@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['magical_58',['magical',['../structDamage.html#a496876891f196c2b4ac9afe9f31b77b4',1,'Damage']]]
+  ['heroisinitialized_101',['heroIsInitialized',['../classGame.html#a1553a6f9a8985a15faf27a8cbba07a3b',1,'Game']]]
 ];

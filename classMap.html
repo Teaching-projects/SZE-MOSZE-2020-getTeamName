@@ -67,6 +67,7 @@ $(function() {
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="classMap-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Map Class Reference</div>  </div>
@@ -86,7 +87,9 @@ Classes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:a41697b848ea9a5aad1910714e0196b7b"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMap.html#a41697b848ea9a5aad1910714e0196b7b">type</a> { <a class="el" href="classMap.html#a41697b848ea9a5aad1910714e0196b7ba35b413f9e0aa940cb9c0f22be9930343">Free</a>, 
-<a class="el" href="classMap.html#a41697b848ea9a5aad1910714e0196b7ba874474147b8fcfcec145b20926fc83bf">Wall</a>
+<a class="el" href="classMap.html#a41697b848ea9a5aad1910714e0196b7ba874474147b8fcfcec145b20926fc83bf">Wall</a>, 
+<a class="el" href="classMap.html#a41697b848ea9a5aad1910714e0196b7ba7006da2a6374a9316c25ddea0853e410">Hero</a>, 
+<a class="el" href="classMap.html#a41697b848ea9a5aad1910714e0196b7bafa797d7af7590211b72559543494b183">Monster</a>
  }</td></tr>
 <tr class="separator:a41697b848ea9a5aad1910714e0196b7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -96,10 +99,27 @@ Public Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMap.html#ab692e79a442bba0c341aaf1b2f27cb07">Map</a> (const std::string &amp;fname)</td></tr>
 <tr class="memdesc:ab692e79a442bba0c341aaf1b2f27cb07"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classMap.html" title="Map class.">Map</a> konstruktora. <br /></td></tr>
 <tr class="separator:ab692e79a442bba0c341aaf1b2f27cb07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b09c8875af2efb711fc3a022e70427d"><td class="memItemLeft" align="right" valign="top"><a id="a2b09c8875af2efb711fc3a022e70427d"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>getHeight</b> ()</td></tr>
+<tr class="separator:a2b09c8875af2efb711fc3a022e70427d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd721152d6aad8a0533eab9c8f8ae4bc"><td class="memItemLeft" align="right" valign="top"><a id="afd721152d6aad8a0533eab9c8f8ae4bc"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMap.html#afd721152d6aad8a0533eab9c8f8ae4bc">getWidth</a> (int y)</td></tr>
+<tr class="memdesc:afd721152d6aad8a0533eab9c8f8ae4bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">A map magassága. <br /></td></tr>
+<tr class="separator:afd721152d6aad8a0533eab9c8f8ae4bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1f7e58c037abdddd0247e8d8f75bc2f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMap.html#af1f7e58c037abdddd0247e8d8f75bc2f">setType</a> (char, int, int)</td></tr>
+<tr class="memdesc:af1f7e58c037abdddd0247e8d8f75bc2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">A map szélessége.  <a href="classMap.html#af1f7e58c037abdddd0247e8d8f75bc2f">More...</a><br /></td></tr>
+<tr class="separator:af1f7e58c037abdddd0247e8d8f75bc2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a74d5010209ad0da6b05595a33f36fc76"><td class="memItemLeft" align="right" valign="top"><a id="a74d5010209ad0da6b05595a33f36fc76"></a>
 <a class="el" href="classMap.html#a41697b848ea9a5aad1910714e0196b7b">Map::type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMap.html#a74d5010209ad0da6b05595a33f36fc76">get</a> (int x, int y) const</td></tr>
 <tr class="memdesc:a74d5010209ad0da6b05595a33f36fc76"><td class="mdescLeft">&#160;</td><td class="mdescRight">X és Y koordináta, visszatér, hogy az adott pont az egy Free vagy Wall. <br /></td></tr>
 <tr class="separator:a74d5010209ad0da6b05595a33f36fc76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:acfd48b449ebeaa742732028840a5dc0c"><td class="memItemLeft" align="right" valign="top"><a id="acfd48b449ebeaa742732028840a5dc0c"></a>
+std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMap.html#acfd48b449ebeaa742732028840a5dc0c">map</a></td></tr>
+<tr class="memdesc:acfd48b449ebeaa742732028840a5dc0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Az RPG játék adott térképe. <br /></td></tr>
+<tr class="separator:acfd48b449ebeaa742732028840a5dc0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="classMap.html" title="Map class.">Map</a> class. </p>
@@ -123,7 +143,49 @@ Public Member Functions</h2></td></tr>
 </td></tr>
 <tr><td class="fieldname"><a id="a41697b848ea9a5aad1910714e0196b7ba874474147b8fcfcec145b20926fc83bf"></a>Wall&#160;</td><td class="fielddoc"><p>A pálya fala. </p>
 </td></tr>
+<tr><td class="fieldname"><a id="a41697b848ea9a5aad1910714e0196b7ba7006da2a6374a9316c25ddea0853e410"></a>Hero&#160;</td><td class="fielddoc"><p>A mapon levő <a class="el" href="classHero.html" title="Hero class.">Hero</a>. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a41697b848ea9a5aad1910714e0196b7bafa797d7af7590211b72559543494b183"></a>Monster&#160;</td><td class="fielddoc"><p>A mapon levő Monster/-ek. </p>
+</td></tr>
 </table>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="af1f7e58c037abdddd0247e8d8f75bc2f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1f7e58c037abdddd0247e8d8f75bc2f">&#9670;&nbsp;</a></span>setType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Map::setType </td>
+          <td>(</td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A map szélessége. </p>
+<p>A mapon egy adott pozícióban szereplő típus beállítása </p>
 
 </div>
 </div>
