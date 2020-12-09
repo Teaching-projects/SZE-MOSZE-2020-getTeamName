@@ -7,6 +7,7 @@ def main():
     commands = []
     outputs1 = []
     outputs2 = []
+    inputs = []
 
     error = ""
 
@@ -27,14 +28,19 @@ def main():
         excepted_outputs2.append(line.strip())
     file.close
 
-    # futási eredmények elmentése
-    p = subprocess.Popen([commands[0]], shell=True, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
-    for i in range(17):
-        outputs1.append(p.stdout.readline().decode().strip())
+    file = open("inputs.txt", "r")
+    for line in file:
+       inputs.append(line.strip())
+    file.close
 
-    p = subprocess.Popen([commands[1]], shell=True, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
-    for i in range(17):
-        outputs2.append(p.stdout.readline().decode().strip())
+    # futási eredmények elmentése
+    for line in os.popen(commands[0]).read().strip().split('\n'):
+        outputs1.append(line.strip()) 
+
+    for line in range(len(inputs)):
+        os.popen(inputs[line]).read().strip().split('\n')
+        print(line.strip())     
+
 
     # futási eredmények és várt eredmények vizsgálata
     for i in range(len(outputs1)):
