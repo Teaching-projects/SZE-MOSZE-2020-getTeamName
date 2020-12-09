@@ -31,6 +31,13 @@ protected:
     virtual double attack(Monster &); ///< A Monster tamadasa egy masik Monster objektum ellen
 
 public:
+    struct Pos_ ///< Pozíció
+    {
+        int x = -1;
+        int y = -1;
+
+        bool operator==(const Pos_& otherPos) { return x == otherPos.x && y == otherPos.y;}
+    } pos;
     Monster(std::string, Damage, double, double, double); ///< Monster konstruktora
     double getHealthPoints() const {return life;} ///< Egyszeru konstans Getter fuggveny, ami visszater a Monster eletenek ertekevel
     std::string getName() const {return name;} ///< Egyszeru konstans Getter fuggveny, ami visszater a Monster nevenek ertekevel

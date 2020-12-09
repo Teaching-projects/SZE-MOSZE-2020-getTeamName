@@ -1,4 +1,5 @@
 import os, sys
+import subprocess
 
 def main():
     excepted_outputs1 = []
@@ -6,6 +7,7 @@ def main():
     commands = []
     outputs1 = []
     outputs2 = []
+    inputs = []
 
     error = ""
 
@@ -26,12 +28,19 @@ def main():
         excepted_outputs2.append(line.strip())
     file.close
 
+    file = open("inputs.txt", "r")
+    for line in file:
+       inputs.append(line.strip())
+    file.close
+
     # futási eredmények elmentése
     for line in os.popen(commands[0]).read().strip().split('\n'):
-        outputs1.append(line.strip())
+        outputs1.append(line.strip()) 
 
-    for line in os.popen(commands[1]).read().strip().split('\n'):
-        outputs2.append(line.strip())
+    for line in range(len(inputs)):
+        os.popen(inputs[line]).read().strip().split('\n')
+        print(line.strip())     
+
 
     # futási eredmények és várt eredmények vizsgálata
     for i in range(len(outputs1)):
@@ -48,7 +57,7 @@ def main():
         if (os.system("echo $?") == 5):
             print("Memory leak...\n")
             sys.exit(5)
-    
+
     if len(error) == 0: 
         sys.exit(0)
     else: 
