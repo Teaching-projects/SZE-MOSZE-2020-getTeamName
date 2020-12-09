@@ -17,5 +17,4 @@ jobs:
           path: ./artifact_cppcheck.txt
       - run: g++-9 -std=c++17 *.cpp -Wall -Wextra -g -lstdc++fs
       - uses: actions/setup-python@v2
-      - run: python run_cppcheck_test.py
-      - run: python run_test.py
+      - run: python run_cppcheck_test.py   

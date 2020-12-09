@@ -82,7 +82,7 @@ void Game::run() {
         while(monsters.size() > 0) {
             print();
             isRunning = true;
-            //std::cout << "Please give a direction: ";
+            std::cout << "Please give a direction: ";
             std::cin >> direction;
             move(direction);
             for (Monster monster : monsters) {
