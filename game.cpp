@@ -107,7 +107,8 @@ void Game::run() {
 }
 
 void Game::move(std::string direction) {
-    int tempX, tempY;
+    int tempX=0;
+    int tempY=0;
     if (direction == "north") {
         tempX = -1;
         tempY = 0;
