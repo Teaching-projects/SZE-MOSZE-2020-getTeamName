@@ -1,3 +1,16 @@
+/**
+ * \class Damage
+ *
+ * \brief Damage class
+ *
+ * \author Almási Szabolcs, Beszedics Tamás, Élő Kristóf
+ *
+ * \date 2020.12.09. 19:14
+ *
+ * Created on 2020.12.09. 19:14
+ */
+
+
 #ifndef DAMAGE_H
 #define DAMAGE_H
 

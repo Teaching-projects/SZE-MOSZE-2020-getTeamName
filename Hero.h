@@ -1,3 +1,16 @@
+/**
+ * \class Hero
+ *
+ * \brief Hero class
+ *
+ * \author Almási Szabolcs, Beszedics Tamás, Élő Kristóf
+ *
+ * \date 2020.12.09. 19:14
+ *
+ * Created on 2020.12.09. 19:14
+ */
+
+
 #ifndef HERO_H
 #define HERO_H
 
