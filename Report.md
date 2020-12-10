@@ -3,8 +3,8 @@
 | Név | Github azonosito  | Javasolt relatív érdemjegy | Becsült óra | Indoklás  | 
 | --- | ---- | --- | ------------------ | --------- |
 | Almási Szabolcs | @AlmasiSzabolcs | +1 | 55 | A csapat összetartó ereje volt. Ő hajtotta csapatot, hogy időben kész legyünk a feladatokkal. Ezen kívül maga is ügyesen megoldotta a rá eső feladatokat és problémákat. |
-| Beszedics Tamás | @beszedics | 0 | 50 | Sokszor Sta Hanovnak kellett megcsinálnia helyette a dolgokat. |
-| Élő Kristóf Lajos | @kristofelo | 0 | 50 | Mindent megcsinált, és amikor Leyh Zee helyett be kellett ugrani, elvállalta a feladadokat, valamint a másik csapatnak a bírálatok zömét Ő csinálta |
+| Beszedics Tamás | @beszedics | 0 | 50 | A rábízott feladatokat alaposan és időben megoldotta, A használt szoftverfejlesztési eszközöket érti és alkalmazni tudja. A csapat megbeszéléseken mindig részt vett. |
+| Élő Kristóf Lajos | @kristofelo | 0 | 50 | A rábízott feladatokat időben megoldotta, A használt szoftverfejlesztési eszközöket érti és alkalmazni is tudja. A csapat megbeszéléseken mindig részt vett. PR-eknél értékelte a társcsapat munkáját. |
 
 
 # Videók
